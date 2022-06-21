@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
+
 namespace Gestão_de_Ocorrencias
 {
     public partial class adcModificar : Form
@@ -12,17 +13,30 @@ namespace Gestão_de_Ocorrencias
         {
             InitializeComponent();
         }
+
         public Int32 codigoreg;
 
         private void adcModificar_Load(object sender, EventArgs e)
         {
+            SqlConnection cnn = new SqlConnection(cnn.ConnectionString);
+            if (cnn.State = ConnectionState.Closed)
+            {
+                try
+                {
+                    cnn.Open();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Can Not Open Connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
 
             // Adiciona a USStates a uma nova lista 
             List<string> USStates = new List<string>();
             USStates.Add("Alta");
             USStates.Add("Média");
             USStates.Add("Baixa");
-
 
             // Adiciona um novo operador a lista
             List<string> Operadores = new List<string>();
@@ -33,6 +47,11 @@ namespace Gestão_de_Ocorrencias
             cboOperador.DataSource = Operadores;
 
             dtmData.Culture = System.Globalization.CultureInfo.CurrentCulture;
+
+            string querry = "SELECT MAX (ID) FROM gestao";
+            SqlCommand cmd = new SqlCommand(querry, cnn);
+            currentid = (int)cmd.ExecuteScalar();
+            newid = currentid + 1;
 
             Carrega();
         }
@@ -52,17 +71,14 @@ namespace Gestão_de_Ocorrencias
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection: ! " + ex.ToString()); ;
+                MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Retorna o valor
             }
 
-            DataSet ds = new DataSet();
-
             // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
-
             // do produto e a conexão com o banco de dados
-
-            SqlDataAdapter CmdCab = new SqlDataAdapter("SELECT * FROM gestao where ID = " + codigoreg, cnn);
+            DataSet ds = new DataSet();
+            SqlDataAdapter CmdCab = new SqlDataAdapter("SELECT * FROM gestao WHERE (ID) = " + codigoreg, cnn);
             CmdCab.Fill(ds, "gestao");
 
             // 3. preenche o dataset
@@ -77,7 +93,7 @@ namespace Gestão_de_Ocorrencias
                 cboOperador.Text = ds.Tables[0].Rows[0]["cboOperador"].ToString();
                 txtTurno.Text = ds.Tables[0].Rows[0]["txtTurno"].ToString();
             }
-            
+
             cnn.Close(); // Fecha a conexão
             MessageBox.Show("Ocorrência modificada com sucesso!", "Ocorrencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close(); // Fecha a mensagem
@@ -99,7 +115,7 @@ namespace Gestão_de_Ocorrencias
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection: ! " + ex.ToString());
+                MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close(); // Retorna o valor
             }
 
@@ -115,7 +131,7 @@ namespace Gestão_de_Ocorrencias
             CmdCab.Parameters.Add("@cboGravidade", SqlDbType.Text).Value = cboGravidade.Text.Trim();
             CmdCab.Parameters.Add("@cboOperador", SqlDbType.Text).Value = cboOperador.Text.Trim();
             CmdCab.Parameters.Add("@txtTurno", SqlDbType.Text).Value = txtTurno.Text.Trim();
-            
+
             try
             {
                 rowsaffected = CmdCab.ExecuteNonQuery(); // Executando o comando

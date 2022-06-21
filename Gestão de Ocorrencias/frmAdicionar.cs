@@ -21,7 +21,7 @@ namespace Gestão_de_Ocorrencias
         int currentid;
         int newid;
         int rowsaffected = 0;
-            
+
         public string tipo { get; set; }
 
         private void adcAdicionar_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace Gestão_de_Ocorrencias
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Can not open connection: ! " + ex.ToString());
+                    MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return; // Retorna o valor
                 }
             }
@@ -54,8 +54,6 @@ namespace Gestão_de_Ocorrencias
 
             dtmData.Culture = CultureInfo.CurrentCulture;
 
-            
-
             string querry = "SELECT MAX ID FROM gestao";
             SqlCommand cmd = new SqlCommand(querry, cnn);
             currentid = (int)cmd.ExecuteScalar();
@@ -65,7 +63,7 @@ namespace Gestão_de_Ocorrencias
         private void btnGravar_Click(object sender, EventArgs e)
         {
             // Inicia a conexão connetionString da base de dados
-           
+
 
             string querry = "INSERT INTO gestao (dtmData, hHora, txtTitulo, txtDescricao, strGravidade, strOperador, strTurno, ID)" +
             "Values (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)";

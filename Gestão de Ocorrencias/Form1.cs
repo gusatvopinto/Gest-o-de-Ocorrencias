@@ -1,6 +1,6 @@
-﻿using Syncfusion.WinForms.DataGridConverter;
+﻿using System;
+using Syncfusion.WinForms.DataGridConverter;
 using Syncfusion.XlsIO;
-using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -32,7 +32,7 @@ namespace Gestão_de_Ocorrencias
         {
             // Inicia uma connetionString
             string connetionString = null;
-            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes ; Password=testes";
+            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes; Password=testes";
             SqlConnection cmd = new SqlConnection(connetionString);
             int rowsaffected = 0;
             try
@@ -126,7 +126,7 @@ namespace Gestão_de_Ocorrencias
                     }
 
                     // Insere os dados dentro do Sql
-                    SqlCommand CmdCab = new SqlCommand("UPDATE gestao SET ID=1 WHERE intCodigo=" + dataRow[0].ToString(), cnn);
+                    SqlCommand CmdCab = new SqlCommand("UPDATE gestao SET ID=1 WHERE intCodigo = " + dataRow[0].ToString(), cnn);
 
                     try
                     {
@@ -147,7 +147,6 @@ namespace Gestão_de_Ocorrencias
 
         private void sfButton1_Click(object sender, EventArgs e)
         {
-
             // Exporta para o Excel 
             var options = new ExcelExportingOptions();
             options.ExcelVersion = ExcelVersion.Excel2013;
