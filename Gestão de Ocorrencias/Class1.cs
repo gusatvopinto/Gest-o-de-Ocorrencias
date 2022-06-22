@@ -5,23 +5,20 @@ using System.Data.SqlClient;
 
 namespace Gestão_de_Ocorrencias
 {
-
     internal class Class1
     {
+        public string connectionString { get; private set; }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
-            string connectionString = null;
             SqlConnection con = new SqlConnection(@"Data Source =asus-portatil\sqlexpress.testes.dbo; Initial Catalog = testes; Integrated Security=true; User ID=testes ; Password=testes");
             con.Open();
 
             DataSet dat = new DataSet();
-            SqlDataAdapter dt = new SqlDataAdapter("SELECT * FROM gestao", con);
-            dt.Fill(dat, "gestao");
-
-            SqlCommand sqlcommand = new SqlCommand("INSERT INTO gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID)" + "VALUES (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)", con);
-
+            SqlDataAdapter dt = new SqlDataAdapter("SELECT * FROM Gestao", con);
+            dt.Fill(dat, "Gestao");
+            SqlCommand sqlcommand = new SqlCommand("INSERT INTO Gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID)" + "VALUES (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)", con);
+           
             SqlCommand dtmData = new SqlCommand();
             SqlCommand hHora = new SqlCommand();
             SqlCommand txtTiTulo = new SqlCommand();
@@ -29,7 +26,8 @@ namespace Gestão_de_Ocorrencias
             SqlCommand cboGravidade = new SqlCommand();
             SqlCommand cboOperador = new SqlCommand();
             SqlCommand txtTurno = new SqlCommand();
-
+            SqlCommand ID = new SqlCommand();
+            
             int cmd = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -43,7 +41,20 @@ namespace Gestão_de_Ocorrencias
                     sqlCommand.Parameters.AddWithValue("@cboGravidade", cmd).Value = cboGravidade.ToString();
                     sqlCommand.Parameters.AddWithValue("@cboOperador", cmd).Value = cboOperador.ToString();
                     sqlCommand.Parameters.AddWithValue("@txtTurno", cmd).Value = txtTurno.ToString();
+                    sqlcommand.Parameters.AddWithValue("@ID", cmd).Value = ID.ToString();
                     sqlcommand.ExecuteNonQuery();
+                }
+
+                if (con.State == System.Data.ConnectionState.Closed)
+                {
+                    try
+                    {
+                        con.Open();
+                    }
+                    catch (Exception)
+                    {
+                        
+                    }
                 }
                 con.Close();
             }

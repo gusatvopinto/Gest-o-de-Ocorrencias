@@ -18,20 +18,6 @@ namespace Gestão_de_Ocorrencias
 
         private void adcModificar_Load(object sender, EventArgs e)
         {
-            SqlConnection cnn = new SqlConnection(cnn.ConnectionString);
-            if (cnn.State = ConnectionState.Closed)
-            {
-                try
-                {
-                    cnn.Open();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Can Not Open Connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-
             // Adiciona a USStates a uma nova lista 
             List<string> USStates = new List<string>();
             USStates.Add("Alta");
@@ -47,12 +33,6 @@ namespace Gestão_de_Ocorrencias
             cboOperador.DataSource = Operadores;
 
             dtmData.Culture = System.Globalization.CultureInfo.CurrentCulture;
-
-            string querry = "SELECT MAX (ID) FROM gestao";
-            SqlCommand cmd = new SqlCommand(querry, cnn);
-            currentid = (int)cmd.ExecuteScalar();
-            newid = currentid + 1;
-
             Carrega();
         }
 
@@ -78,12 +58,12 @@ namespace Gestão_de_Ocorrencias
             // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
             // do produto e a conexão com o banco de dados
             DataSet ds = new DataSet();
-            SqlDataAdapter CmdCab = new SqlDataAdapter("SELECT * FROM gestao WHERE (ID) = " + codigoreg, cnn);
-            CmdCab.Fill(ds, "gestao");
+            SqlDataAdapter CmdCab = new SqlDataAdapter("SELECT * FROM Gestao WHERE (ID) = " + codigoreg, cnn);
+            CmdCab.Fill(ds, "Gestao");
 
             // 3. preenche o dataset
 
-            if (ds.Tables["gestao"].Rows.Count > 0)
+            if (ds.Tables["Gestao"].Rows.Count > 0)
             {
                 dtmData.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["dtmData"].ToString());
                 mskHora.Text = ds.Tables[0].Rows[0]["hHora"].ToString();
@@ -119,18 +99,19 @@ namespace Gestão_de_Ocorrencias
                 this.Close(); // Retorna o valor
             }
 
-            SqlCommand CmdCab = new SqlCommand("UPDATE gestao SET  dtmData = @dtmData, hHora = @hHora, txtTitulo = @txtTitulo, " +
+            SqlCommand CmdCab = new SqlCommand("UPDATE Gestao SET  dtmData = @dtmData, hHora = @hHora, txtTitulo = @txtTitulo, " +
             "txtDescricao = @txtDescricao, cboGravidade = @cboGravidade, cboOperador = @cboOperador, txtTurno = @txtTurno, " +
             " where ID = " + codigoreg, cnn);
 
             // Adicionando parametros baseado no Sql
-            CmdCab.Parameters.Add("@dtmData", SqlDbType.DateTime).Value = dtmData.Text;
-            CmdCab.Parameters.Add("@hHora", SqlDbType.DateTime).Value = mskHora.ToString();
-            CmdCab.Parameters.Add("@txtTitulo", SqlDbType.Text).Value = txtTitulo.ToString();
-            CmdCab.Parameters.Add("@txtDescricao", SqlDbType.Text).Value = txtDescricao.Text.Trim();
-            CmdCab.Parameters.Add("@cboGravidade", SqlDbType.Text).Value = cboGravidade.Text.Trim();
-            CmdCab.Parameters.Add("@cboOperador", SqlDbType.Text).Value = cboOperador.Text.Trim();
-            CmdCab.Parameters.Add("@txtTurno", SqlDbType.Text).Value = txtTurno.Text.Trim();
+            CmdCab.Parameters.AddWithValue("@dtmData", SqlDbType.DateTime).Value = dtmData.Text;
+            CmdCab.Parameters.AddWithValue("@hHora", SqlDbType.DateTime).Value = mskHora.ToString();
+            CmdCab.Parameters.AddWithValue("@txtTitulo", SqlDbType.Text).Value = txtTitulo.ToString();
+            CmdCab.Parameters.AddWithValue("@txtDescricao", SqlDbType.Text).Value = txtDescricao.Text.ToString();
+            CmdCab.Parameters.AddWithValue("@cboGravidade", SqlDbType.Text).Value = cboGravidade.Text.ToString();
+            CmdCab.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = cboOperador.Text.ToString();
+            CmdCab.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text.ToString();
+
 
             try
             {

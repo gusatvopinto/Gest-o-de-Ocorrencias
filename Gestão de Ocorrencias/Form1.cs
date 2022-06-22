@@ -8,7 +8,6 @@ using System.Windows.Forms;
 
 namespace Gestão_de_Ocorrencias
 {
-
     public partial class Form1 : Form
     {
         public Form1()
@@ -26,7 +25,6 @@ namespace Gestão_de_Ocorrencias
         private void Form1_Load(object sender, EventArgs e)
         {
             Refresh();
-
         }
         void update()
         {
@@ -34,17 +32,15 @@ namespace Gestão_de_Ocorrencias
             string connetionString = null;
             connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes; Password=testes";
             SqlConnection cmd = new SqlConnection(connetionString);
-            int rowsaffected = 0;
+            
             try
             {
-
                 cmd.Open(); // Abre a base de dados
-
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show("Can not open connection: ! " + ex.ToString());
+                MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Retorna o valor
             }
 
@@ -52,12 +48,11 @@ namespace Gestão_de_Ocorrencias
             DataSet ds = new DataSet();
 
             // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
-
             // do produto e a conexão com o banco de dados
 
-            SqlDataAdapter da = new SqlDataAdapter("Select  intCodigo as 'Código', dtmData as 'Data', hHora as 'Hora', txtTitulo as 'Titulo', txtDescricao as 'Descricao', cboGravidade as 'Gravidade', cboOperador as 'Operador', txtTurno as 'Turno', bitAnulado as 'Anulado' FROM gestao WHERE bitAnulado=0", cmd);
-
-            SqlCommand CmdCab = new SqlCommand("UPDATE gestao Set ID=@ID " + " WHERE intCodigo = @ID", cmd);
+            SqlDataAdapter da = new SqlDataAdapter("Select  intCodigo as 'Código', cboOperador as 'Operador', FROM Gestao WHERE ID=1", cmd);
+            SqlCommand CmdCab = new SqlCommand("UPDATE Gestao Set ID=@ID " + " WHERE intCodigo = @ID", cmd);
+            int rowsaffected = (int)CmdCab.ExecuteScalar();
 
             try
             {
@@ -66,19 +61,16 @@ namespace Gestão_de_Ocorrencias
             catch (Exception ex)
             {
                 MessageBox.Show("Inserir DocCab: " + ex.ToString());
-
                 return; // Retorna o valor
             }
             cmd.Close(); // Fecha a conexão com a base de dados
             MessageBox.Show("Ocorrência removida com sucesso!", "Ocorrencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             update();
 
             // 3. preenche o dataset
 
-            da.Fill(ds, "gestao");
-
-            sfDataGrid1.DataSource = ds.Tables["gestao"];
+            da.Fill(ds, "Gestao");
+            sfDataGrid1.DataSource = ds.Tables["Gestao"];
 
         }
         private void btnModificar_Click(object sender, EventArgs e)
@@ -101,17 +93,15 @@ namespace Gestão_de_Ocorrencias
         private void btnRemover_Click(object sender, EventArgs e)
         {
             var selectedItem = sfDataGrid1.CurrentItem as DataRowView;
-
             if (selectedItem != null)
             {
                 var dataRow = (selectedItem as DataRowView).Row; // Seleciona a coluna do item 
 
                 if (MessageBox.Show("Tem a certeza que deseja remover esta ocorrência?", "Remover Ocorrência", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
                     // Inicia uma connetionString
                     string connetionString = null;
-                    connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes;Password=testes";
+                    connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes; Password=testes";
                     SqlConnection cnn = new SqlConnection(connetionString);
                     int rowsaffected = 0;
                     try
@@ -121,17 +111,18 @@ namespace Gestão_de_Ocorrencias
 
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Can not open connection: ! " + ex.ToString());
+                        MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
 
                     // Insere os dados dentro do Sql
-                    SqlCommand CmdCab = new SqlCommand("UPDATE gestao SET ID=1 WHERE intCodigo = " + dataRow[0].ToString(), cnn);
+                    SqlCommand CmdCab = new SqlCommand("UPDATE Gestao SET ID=1 WHERE intCodigo = " + dataRow[0].ToString(), cnn);
 
                     try
                     {
                         rowsaffected = CmdCab.ExecuteNonQuery(); // Executando o comando
                     }
+
                     catch (Exception ex)
                     {
                         MessageBox.Show("Inserir DocCab: " + ex.ToString());
