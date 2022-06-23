@@ -27,7 +27,7 @@ namespace Gestão_de_Ocorrencias
             SqlCommand cboOperador = new SqlCommand();
             SqlCommand txtTurno = new SqlCommand();
             SqlCommand ID = new SqlCommand();
-            
+
             int cmd = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -41,10 +41,9 @@ namespace Gestão_de_Ocorrencias
                     sqlCommand.Parameters.AddWithValue("@cboGravidade", cmd).Value = cboGravidade.ToString();
                     sqlCommand.Parameters.AddWithValue("@cboOperador", cmd).Value = cboOperador.ToString();
                     sqlCommand.Parameters.AddWithValue("@txtTurno", cmd).Value = txtTurno.ToString();
-                    sqlcommand.Parameters.AddWithValue("@ID", cmd).Value = ID.ToString();
-                    sqlcommand.ExecuteNonQuery();
+                    sqlcommand.Parameters.AddWithValue("@ID", cmd).Value = ID;
+                    SqlDataReader reader = sqlCommand.ExecuteReader();
                 }
-
                 if (con.State == System.Data.ConnectionState.Closed)
                 {
                     try
