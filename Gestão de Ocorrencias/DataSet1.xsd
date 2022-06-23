@@ -79,7 +79,7 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
               <Mapping SourceColumn="strGravidade" DataSetColumn="cboGravidade" />
               <Mapping SourceColumn="strOperador" DataSetColumn="cboOperador" />
               <Mapping SourceColumn="strTurno" DataSetColumn="txtTurno" />
-              <Mapping SourceColumn="bitAnulado" DataSetColumn="bitAnulado" />
+              <Mapping SourceColumn="bitAnulado" DataSetColumn="ID" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -131,7 +131,7 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="bitAnulado" msprop:Generator_ColumnPropNameInTable="bitAnuladoColumn" msprop:Generator_ColumnPropNameInRow="bitAnulado" msprop:Generator_UserColumnName="bitAnulado" msprop:Generator_ColumnVarNameInTable="columnbitAnulado" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_UserColumnName="ID" msprop:Generator_ColumnVarNameInTable="columnID" type="xs:dateTime" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

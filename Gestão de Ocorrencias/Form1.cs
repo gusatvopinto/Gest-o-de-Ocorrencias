@@ -1,6 +1,6 @@
-﻿using System;
-using Syncfusion.WinForms.DataGridConverter;
+﻿using Syncfusion.WinForms.DataGridConverter;
 using Syncfusion.XlsIO;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -32,7 +32,7 @@ namespace Gestão_de_Ocorrencias
             string connetionString = null;
             connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes; Password=testes";
             SqlConnection cmd = new SqlConnection(connetionString);
-            
+
             try
             {
                 cmd.Open(); // Abre a base de dados
@@ -50,7 +50,10 @@ namespace Gestão_de_Ocorrencias
             // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
             // do produto e a conexão com o banco de dados
 
-            SqlDataAdapter da = new SqlDataAdapter("Select  intCodigo as 'Código', cboOperador as 'Operador', FROM Gestao WHERE ID=1", cmd);
+            SqlDataAdapter da = new SqlDataAdapter("Select  intCodigo as 'Código', ID as 'ID', FROM Gestao WHERE ID=1", cmd);
+            da.Fill(ds, "Gestao");
+            sfDataGrid1.DataSource = ds.Tables["Gestao"];
+
             SqlCommand CmdCab = new SqlCommand("UPDATE Gestao Set ID=@ID " + " WHERE intCodigo = @ID", cmd);
             int rowsaffected = (int)CmdCab.ExecuteScalar();
 
@@ -66,13 +69,8 @@ namespace Gestão_de_Ocorrencias
             cmd.Close(); // Fecha a conexão com a base de dados
             MessageBox.Show("Ocorrência removida com sucesso!", "Ocorrencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
             update();
-
-            // 3. preenche o dataset
-
-            da.Fill(ds, "Gestao");
-            sfDataGrid1.DataSource = ds.Tables["Gestao"];
-
         }
+
         private void btnModificar_Click(object sender, EventArgs e)
         {
             var selectedItem = sfDataGrid1.CurrentItem as DataRowView;
@@ -99,7 +97,7 @@ namespace Gestão_de_Ocorrencias
 
                 if (MessageBox.Show("Tem a certeza que deseja remover esta ocorrência?", "Remover Ocorrência", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    // Inicia uma connetionString
+                    // Inicia uma conexao
                     string connetionString = null;
                     connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes; Password=testes";
                     SqlConnection cnn = new SqlConnection(connetionString);
@@ -129,7 +127,7 @@ namespace Gestão_de_Ocorrencias
                         return; // Retorna o valor
                     }
                     cnn.Close(); // Fecha a conexão com a base de dados
-                    MessageBox.Show("Ocorrência removida com sucesso!", "Ocorrencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Ocorrência removida com sucesso!", "Ocorrência", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     update();
                 }

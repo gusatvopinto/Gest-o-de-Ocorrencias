@@ -29,13 +29,16 @@ namespace Gestão_de_Ocorrencias
             SqlCommand txtTurno = new SqlCommand();
             SqlCommand ID = new SqlCommand();
 
+            DateTime Dat = (DateTime)dtmData.Value;
+            DateTime Time = (DateTime)hHora;
+
             int cmd = 0;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 con.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(connectionString))
                 {
-                    sqlCommand.Parameters.AddWithValue("@dtmData", cmd).Value = dtmData.ToString();
+                    sqlCommand.Parameters.AddWithValue("@dtmData", cmd).Value = Dat.Date.ToShortDateString();
                     sqlCommand.Parameters.AddWithValue("@hHora", cmd).Value = hHora.ToString();
                     sqlCommand.Parameters.AddWithValue("@txtTitulo", cmd).Value = txtTiTulo.ToString();
                     sqlCommand.Parameters.AddWithValue("@txtDescricao", cmd).Value = txtDescricao.ToString();
