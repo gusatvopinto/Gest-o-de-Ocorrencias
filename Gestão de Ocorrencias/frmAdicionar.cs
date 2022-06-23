@@ -44,15 +44,16 @@ namespace Gestão_de_Ocorrencias
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            // Inicia a conexão connetionString da base de dados
+            DateTime Dat = (DateTime)dtmData.Value;
+            DateTime Time = DateTime.ParseExact(mskHora.ToString(),"h:m", System.Globalization.CultureInfo.CurrentCulture);
 
             using (SqlConnection connection = new SqlConnection(connetionString))
             {
                 connection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(querry, connection))
                 {
-                    sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Date).Value = dtmData.Value.Date.ToShortDateString();
-                    sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.Time).Value = mskHora.Text.;
+                    sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Date).Value = Dat.Date.ToShortDateString();
+                    sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.Time).Value = Time.ToShortTimeString();
                     sqlCommand.Parameters.AddWithValue("@txtTitulo", SqlDbType.NVarChar).Value = txtTitulo;
                     sqlCommand.Parameters.AddWithValue("@txtDescricao", SqlDbType.NVarChar).Value = txtDescricao.Text;
                     sqlCommand.Parameters.AddWithValue("@cboGravidade", SqlDbType.NVarChar).Value = cboGravidade.Text;
