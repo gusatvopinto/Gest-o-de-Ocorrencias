@@ -15,10 +15,11 @@ namespace Gestão_de_Ocorrencias
             con.Open();
 
             DataSet dat = new DataSet();
-            SqlDataAdapter dt = new SqlDataAdapter("SELECT * FROM Gestao", con);
-            dt.Fill(dat, "Gestao");
+            SqlDataAdapter dt = new SqlDataAdapter("Select * From Gestao Where @dtmdata", con);
+            dt.Fill(dat);
+            
+
             SqlCommand sqlcommand = new SqlCommand("INSERT INTO Gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID)" + "VALUES (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)", con);
-           
             SqlCommand dtmData = new SqlCommand();
             SqlCommand hHora = new SqlCommand();
             SqlCommand txtTiTulo = new SqlCommand();

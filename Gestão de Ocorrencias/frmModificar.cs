@@ -80,6 +80,9 @@ namespace Gestão_de_Ocorrencias
 
         }
 
+        public int Id { get; }
+
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
 
@@ -104,13 +107,14 @@ namespace Gestão_de_Ocorrencias
             " where ID = " + codigoreg, cnn);
 
             // Adicionando parametros baseado no Sql
-            CmdCab.Parameters.AddWithValue("@dtmData", SqlDbType.DateTime).Value = dtmData.Text;
-            CmdCab.Parameters.AddWithValue("@hHora", SqlDbType.DateTime).Value = mskHora.ToString();
+            CmdCab.Parameters.AddWithValue("@dtmData", SqlDbType.DateTime).Value = dtmData.Value;
+            CmdCab.Parameters.AddWithValue("@hHora", SqlDbType.DateTime).Value = mskHora;
             CmdCab.Parameters.AddWithValue("@txtTitulo", SqlDbType.Text).Value = txtTitulo.ToString();
             CmdCab.Parameters.AddWithValue("@txtDescricao", SqlDbType.Text).Value = txtDescricao.Text.ToString();
             CmdCab.Parameters.AddWithValue("@cboGravidade", SqlDbType.Text).Value = cboGravidade.Text.ToString();
             CmdCab.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = cboOperador.Text.ToString();
             CmdCab.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text.ToString();
+            CmdCab.Parameters.AddWithValue("@ID", SqlDbType.NVarChar).Value = (char)Id;
 
 
             try

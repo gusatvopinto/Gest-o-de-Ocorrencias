@@ -38,8 +38,9 @@ namespace Gestão_de_Ocorrencias
 
         }
 
-        string querry = @"INSERT INTO Gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, strTurno, ID) Values (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)";
-        int Id;
+        string querry = @"INSERT INTO Gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID) Values (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)";
+
+        public int Id { get; }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
@@ -50,22 +51,20 @@ namespace Gestão_de_Ocorrencias
                 connection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(querry, connection))
                 {
-                    sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Time).Value = dtmData.Value;
-                    sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.Time).Value = mskHora.ToString();
-                    sqlCommand.Parameters.AddWithValue("@txtTitulo", SqlDbType.Text).Value = txtTitulo.ToString();
-                    sqlCommand.Parameters.AddWithValue("@txtDescricao", SqlDbType.Text).Value = txtDescricao.Text.ToString();
-                    sqlCommand.Parameters.AddWithValue("@cboGravidade", SqlDbType.Text).Value = cboGravidade.Text.ToString();
-                    sqlCommand.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = cboOperador.Text.ToString();
-                    sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text.ToString();
-                    sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.NVarChar).Value = ((char)Id);
-                    SqlDataReader reader = sqlCommand.ExecuteReader();
-
-                    SqlCommand command = new SqlCommand(sqlCommand.ToString(), connection);
+                    sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Date).Value = dtmData.Value.Date.ToShortDateString();
+                    sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.Time).Value = mskHora.Text.;
+                    sqlCommand.Parameters.AddWithValue("@txtTitulo", SqlDbType.NVarChar).Value = txtTitulo;
+                    sqlCommand.Parameters.AddWithValue("@txtDescricao", SqlDbType.NVarChar).Value = txtDescricao.Text;
+                    sqlCommand.Parameters.AddWithValue("@cboGravidade", SqlDbType.NVarChar).Value = cboGravidade.Text;
+                    sqlCommand.Parameters.AddWithValue("@cboOperador", SqlDbType.NVarChar).Value = cboOperador.Text;
+                    sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.NVarChar).Value = txtTurno.Text;
+                    sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.NVarChar).Value = (char)Id;
 
                     string sql = sqlCommand.ToString();
                     try
                     {
-                        TimeSpan durtime = TimeSpan.Parse(querry.ToString());
+                        sqlCommand.ExecuteNonQuery();
+
                     }
                     catch (FormatException)
                     {
