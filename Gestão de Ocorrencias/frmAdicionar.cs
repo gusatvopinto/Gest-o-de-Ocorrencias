@@ -41,12 +41,8 @@ namespace Gestão_de_Ocorrencias
         public int Id { get; set; }
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
-
-
             using (SqlConnection connection = new SqlConnection(connetionString))
             {
-                connection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(querry, connection))
                 {
                     sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Date).Value = dtmData.Value;
@@ -57,6 +53,9 @@ namespace Gestão_de_Ocorrencias
                     sqlCommand.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = cboOperador.Text;
                     sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text;
                     sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.Int).Value = Id;
+
+                    connection.Open();
+                    SqlCommand com = new SqlCommand(@"INSERT INTO Gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID) Values (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)");
 
                     string sql = sqlCommand.ToString();
                     try

@@ -41,14 +41,10 @@ namespace Gestão_de_Ocorrencias
                 return; // Retorna o valor
             }
             update();
-
-
-
         }
 
         void update()
         {
-
             // Inicia o dataset
             DataSet ds = new DataSet();
             string table = "SELECT * FROM Gestao";
@@ -57,7 +53,7 @@ namespace Gestão_de_Ocorrencias
 
             SqlDataAdapter da = new SqlDataAdapter(table, cmd);
             da.Fill(ds, "Gestao");
-            sfDataGrid1.DataSource = ds.Tables["Gestao"];
+            sfDataGrid1.DataSource = ds.Tables["Gestao"];            
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -66,7 +62,6 @@ namespace Gestão_de_Ocorrencias
 
             if (selectedItem != null)
             {
-
                 // Seleciona os items do DataGridView 
                 var dataRow = (selectedItem as DataRowView).Row;
 

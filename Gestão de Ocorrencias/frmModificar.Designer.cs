@@ -42,17 +42,16 @@ namespace Gestão_de_Ocorrencias
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.mskHora = new Syncfusion.Windows.Forms.Tools.MaskedEditBox();
             this.label3 = new System.Windows.Forms.Label();
             this.dtmData = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             this.label1 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.hHora = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTurno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboOperador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboGravidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTitulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescricao)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mskHora)).BeginInit();
             this.SuspendLayout();
             // 
             // txtTurno
@@ -164,18 +163,6 @@ namespace Gestão_de_Ocorrencias
             this.label2.TabIndex = 21;
             this.label2.Text = "Título:";
             // 
-            // mskHora
-            // 
-            this.mskHora.BeforeTouchSize = new System.Drawing.Size(75, 29);
-            this.mskHora.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskHora.Location = new System.Drawing.Point(120, 76);
-            this.mskHora.Mask = "##:##";
-            this.mskHora.MaxLength = 5;
-            this.mskHora.Name = "mskHora";
-            this.mskHora.Size = new System.Drawing.Size(75, 29);
-            this.mskHora.TabIndex = 20;
-            this.mskHora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -211,12 +198,24 @@ namespace Gestão_de_Ocorrencias
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // hHora
+            // 
+            this.hHora.Cursor = System.Windows.Forms.Cursors.Default;
+            this.hHora.DateTimeEditingMode = Syncfusion.WinForms.Input.Enums.DateTimeEditingMode.Mask;
+            this.hHora.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.ShortTime;
+            this.hHora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hHora.Location = new System.Drawing.Point(120, 76);
+            this.hHora.Name = "hHora";
+            this.hHora.Size = new System.Drawing.Size(232, 31);
+            this.hHora.TabIndex = 33;
+            // 
             // adcModificar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(813, 528);
+            this.Controls.Add(this.hHora);
             this.Controls.Add(this.txtTurno);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboOperador);
@@ -228,7 +227,6 @@ namespace Gestão_de_Ocorrencias
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.mskHora);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtmData);
             this.Controls.Add(this.label1);
@@ -244,7 +242,6 @@ namespace Gestão_de_Ocorrencias
             ((System.ComponentModel.ISupportInitialize)(this.cboGravidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTitulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescricao)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mskHora)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,10 +260,10 @@ namespace Gestão_de_Ocorrencias
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
-        private Syncfusion.Windows.Forms.Tools.MaskedEditBox mskHora;
         private System.Windows.Forms.Label label3;
         private Syncfusion.WinForms.Input.SfDateTimeEdit dtmData;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit hHora;
     }
 }
