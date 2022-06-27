@@ -18,21 +18,40 @@ namespace Gestão_de_Ocorrencias
 
         private void adcModificar_Load(object sender, EventArgs e)
         {
-            // Adiciona a USStates a uma nova lista 
-            List<string> USStates = new List<string>();
-            USStates.Add("Alta");
-            USStates.Add("Média");
-            USStates.Add("Baixa");
+            string connetionString = null;
+            SqlConnection cnn;
+            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes";
+            cnn = new SqlConnection(connetionString);
+            int rowsaffected = 0;
 
-            // Adiciona um novo operador a lista
-            List<string> Operadores = new List<string>();
-            Operadores.Add("Elisio Pereira");
+            try
+            {
+                cnn.Open();// Abre a conexão
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close(); // Retorna o valor
+            }
+
+            SqlCommand CmdCab = new SqlCommand("UPDATE Gestao SET  dtmData = @dtmData, hHora = @hHora, txtTitulo = @txtTitulo, " +
+            "txtDescricao = @txtDescricao, cboGravidade = @cboGravidade, cboOperador = @cboOperador, txtTurno = @txtTurno, " +
+            " where ID = " + codigoreg, cnn);
 
 
-            cboGravidade.DataSource = USStates;
-            cboOperador.DataSource = Operadores;
+            try
+            {
+                rowsaffected = CmdCab.ExecuteNonQuery(); // Executando o comando
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Inserir DocCab: " + ex.ToString());
+                return; // Retorna o valor
+            }
 
-            dtmData.Culture = System.Globalization.CultureInfo.CurrentCulture;
+            cnn.Close(); // Fecha a conexão
+            MessageBox.Show("Ocorrência modificada com sucesso!", "Ocorrencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close(); // Fecha a mensagem
 
 
             Carrega();
@@ -40,7 +59,6 @@ namespace Gestão_de_Ocorrencias
 
         void Carrega()
         {
-
             string connetionString = null;
             SqlConnection cnn;
             connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; User ID=testes; Password=testes";
@@ -57,8 +75,7 @@ namespace Gestão_de_Ocorrencias
             }
 
             MessageBox.Show("Ocorrência modificada com sucesso!", "Ocorrencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close(); // Fecha a mensagem
-
+            cnn.Close(); // Fecha a mensagem
         }
 
         public int Id { get; }
@@ -66,7 +83,6 @@ namespace Gestão_de_Ocorrencias
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
             // Inicia a conexão connetionString a base de dados
             string connetionString = null;
             SqlConnection cnn;

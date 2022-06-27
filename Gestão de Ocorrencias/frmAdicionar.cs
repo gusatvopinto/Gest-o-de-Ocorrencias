@@ -16,6 +16,7 @@ namespace Gestão_de_Ocorrencias
 
         private string connetionString = (@"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes");
 
+        public string ConnetionString { get; set; }
         public string tipo { get; set; }
 
         private void adcAdicionar_Load(object sender, EventArgs e)
@@ -70,8 +71,9 @@ namespace Gestão_de_Ocorrencias
                 }
                 connection.Close();
             }
+            SqlConnection sqlConnection = new SqlConnection();
             MessageBox.Show("Ocorrência inserida com sucesso: !", "Ocorrência", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            this.Close(); // Fecha a mensagem
+            sqlConnection.Close(); // Fecha a mensagem
         }
     }
 }
