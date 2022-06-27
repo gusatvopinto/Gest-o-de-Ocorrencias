@@ -14,20 +14,21 @@ namespace Gestão_de_Ocorrencias
         {
             InitializeComponent();
         }
-
+        SqlConnection cmd = new SqlConnection();
         string connetionString;
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             adcAdicionar adc = new adcAdicionar();
             adc.ShowDialog();
+            update();
             Refresh();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
-            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes";
-            SqlConnection cmd = new SqlConnection(connetionString);
+
+            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; User ID=testes; Password=testes";
+            cmd.ConnectionString = connetionString;
 
             try
             {
@@ -39,6 +40,14 @@ namespace Gestão_de_Ocorrencias
                 MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return; // Retorna o valor
             }
+            update();
+
+
+
+        }
+
+        void update()
+        {
 
             // Inicia o dataset
             DataSet ds = new DataSet();
@@ -49,41 +58,6 @@ namespace Gestão_de_Ocorrencias
             SqlDataAdapter da = new SqlDataAdapter(table, cmd);
             da.Fill(ds, "Gestao");
             sfDataGrid1.DataSource = ds.Tables["Gestao"];
-
-        }
-
-        void update()
-        {
-
-            // Inicia uma connetionString
-            //string connetionString = null;
-            //connetionString = @"Data Source=asus-portatil.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes";
-            //SqlConnection cmd = new SqlConnection(connetionString);
-
-            //try
-            // {
-            //  cmd.Open(); // Abre a base de dados
-            // }
-
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //     return; // Retorna o valor
-            //}
-
-            // Inicia o dataset
-            //DataSet ds = new DataSet();
-            //string table = "SELECT * FROM Gestao";
-            // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
-            // do produto e a conexão com o banco de dados
-
-            // SqlDataAdapter da = new SqlDataAdapter(table, cmd);
-            //   da.Fill(ds);*/
-
-            DataSet1TableAdapters.gestaoTableAdapter gestaoTableAdapter = new DataSet1TableAdapters.gestaoTableAdapter();
-            DataSet1.gestaoDataTable gestaos = new DataSet1.gestaoDataTable();
-            gestaoTableAdapter.Fill(gestaos);
-            sfDataGrid1.DataSource = gestaos;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -99,6 +73,7 @@ namespace Gestão_de_Ocorrencias
                 adcModificar adc = new adcModificar();
                 adc.codigoreg = Convert.ToInt32(dataRow[0].ToString());
                 adc.ShowDialog();
+                update();
                 Refresh();
             }
         }

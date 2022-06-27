@@ -33,16 +33,17 @@ namespace Gestão_de_Ocorrencias
             cboOperador.DataSource = Operadores;
 
             dtmData.Culture = System.Globalization.CultureInfo.CurrentCulture;
+
+
             Carrega();
         }
 
         void Carrega()
         {
 
-            // Inicia a conexão connetionString da base de dados
             string connetionString = null;
             SqlConnection cnn;
-            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes";
+            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; User ID=testes; Password=testes";
             cnn = new SqlConnection(connetionString);
 
             try
@@ -55,26 +56,6 @@ namespace Gestão_de_Ocorrencias
                 return; // Retorna o valor
             }
 
-            // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
-            // do produto e a conexão com o banco de dados
-            DataSet ds = new DataSet();
-            SqlDataAdapter CmdCab = new SqlDataAdapter("SELECT * FROM Gestao WHERE (ID) = " + codigoreg, cnn);
-            CmdCab.Fill(ds, "Gestao");
-
-            // 3. preenche o dataset
-
-            if (ds.Tables["Gestao"].Rows.Count > 0)
-            {
-                dtmData.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["dtmData"].ToString());
-                mskHora.Text = ds.Tables[0].Rows[0]["hHora"].ToString();
-                txtTitulo.Text = ds.Tables[0].Rows[0]["txtTitulo"].ToString();
-                txtDescricao.Text = ds.Tables[0].Rows[0]["txtDescricao"].ToString();
-                cboGravidade.Text = ds.Tables[0].Rows[0]["cboGravidade"].ToString();
-                cboOperador.Text = ds.Tables[0].Rows[0]["cboOperador"].ToString();
-                txtTurno.Text = ds.Tables[0].Rows[0]["txtTurno"].ToString();
-            }
-
-            cnn.Close(); // Fecha a conexão
             MessageBox.Show("Ocorrência modificada com sucesso!", "Ocorrencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close(); // Fecha a mensagem
 

@@ -14,8 +14,7 @@ namespace Gestão_de_Ocorrencias
             InitializeComponent();
         }
 
-        private string connetionString = (@"Data Source=ASUS-PORTATIL\SQLEXPRESS.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes");
-        SqlConnection Connection = new SqlConnection();
+        private string connetionString = (@"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes");
 
         public string tipo { get; set; }
 
@@ -39,11 +38,11 @@ namespace Gestão_de_Ocorrencias
         }
 
         string querry = @"INSERT INTO Gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID) Values (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)";
-        public int Id { get; }
+        public int Id { get; set; }
         private void btnGravar_Click(object sender, EventArgs e)
         {
 
-            //DateTime Time = Convert.ToDateTime(hHora.ToString(), "h:m", System.Globalization.CultureInfo.CurrentCulture);
+
 
             using (SqlConnection connection = new SqlConnection(connetionString))
             {
@@ -51,13 +50,13 @@ namespace Gestão_de_Ocorrencias
                 using (SqlCommand sqlCommand = new SqlCommand(querry, connection))
                 {
                     sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Date).Value = dtmData.Value;
-                    sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.DateTime).Value = hHora.Value;
+                    sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.DateTime2).Value = hHora.Value;
                     sqlCommand.Parameters.AddWithValue("@txtTitulo", SqlDbType.Text).Value = txtTitulo.Text;
                     sqlCommand.Parameters.AddWithValue("@txtDescricao", SqlDbType.Text).Value = txtDescricao.Text;
                     sqlCommand.Parameters.AddWithValue("@cboGravidade", SqlDbType.Text).Value = cboGravidade.Text;
                     sqlCommand.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = cboOperador.Text;
                     sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text;
-                    sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.NVarChar).Value = (char)Id;
+                    sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.Int).Value = Id;
 
                     string sql = sqlCommand.ToString();
                     try
