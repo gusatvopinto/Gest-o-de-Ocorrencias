@@ -20,17 +20,17 @@ namespace Gestão_de_Ocorrencias {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("DataSet1")]
+    [global::System.Xml.Serialization.XmlRootAttribute("testesDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class DataSet1 : global::System.Data.DataSet {
+    public partial class testesDataSet : global::System.Data.DataSet {
         
-        private gestaoDataTable tablegestao;
+        private GestaoDataTable tableGestao;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public DataSet1() {
+        public testesDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace Gestão_de_Ocorrencias {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected DataSet1(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected testesDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace Gestão_de_Ocorrencias {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["gestao"] != null)) {
-                    base.Tables.Add(new gestaoDataTable(ds.Tables["gestao"]));
+                if ((ds.Tables["Gestao"] != null)) {
+                    base.Tables.Add(new GestaoDataTable(ds.Tables["Gestao"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace Gestão_de_Ocorrencias {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public gestaoDataTable gestao {
+        public GestaoDataTable Gestao {
             get {
-                return this.tablegestao;
+                return this.tableGestao;
             }
         }
         
@@ -127,7 +127,7 @@ namespace Gestão_de_Ocorrencias {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            DataSet1 cln = ((DataSet1)(base.Clone()));
+            testesDataSet cln = ((testesDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace Gestão_de_Ocorrencias {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["gestao"] != null)) {
-                    base.Tables.Add(new gestaoDataTable(ds.Tables["gestao"]));
+                if ((ds.Tables["Gestao"] != null)) {
+                    base.Tables.Add(new GestaoDataTable(ds.Tables["Gestao"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace Gestão_de_Ocorrencias {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablegestao = ((gestaoDataTable)(base.Tables["gestao"]));
+            this.tableGestao = ((GestaoDataTable)(base.Tables["Gestao"]));
             if ((initTable == true)) {
-                if ((this.tablegestao != null)) {
-                    this.tablegestao.InitVars();
+                if ((this.tableGestao != null)) {
+                    this.tableGestao.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace Gestão_de_Ocorrencias {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "DataSet1";
+            this.DataSetName = "testesDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/DataSet1.xsd";
+            this.Namespace = "http://tempuri.org/testesDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablegestao = new gestaoDataTable();
-            base.Tables.Add(this.tablegestao);
+            this.tableGestao = new GestaoDataTable();
+            base.Tables.Add(this.tableGestao);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializegestao() {
+        private bool ShouldSerializeGestao() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace Gestão_de_Ocorrencias {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            DataSet1 ds = new DataSet1();
+            testesDataSet ds = new testesDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,14 +270,14 @@ namespace Gestão_de_Ocorrencias {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void gestaoRowChangeEventHandler(object sender, gestaoRowChangeEvent e);
+        public delegate void GestaoRowChangeEventHandler(object sender, GestaoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class gestaoDataTable : global::System.Data.TypedTableBase<gestaoRow> {
+        public partial class GestaoDataTable : global::System.Data.TypedTableBase<GestaoRow> {
             
             private global::System.Data.DataColumn columndtmData;
             
@@ -297,8 +297,8 @@ namespace Gestão_de_Ocorrencias {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public gestaoDataTable() {
-                this.TableName = "gestao";
+            public GestaoDataTable() {
+                this.TableName = "Gestao";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -306,7 +306,7 @@ namespace Gestão_de_Ocorrencias {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal gestaoDataTable(global::System.Data.DataTable table) {
+            internal GestaoDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -323,7 +323,7 @@ namespace Gestão_de_Ocorrencias {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected gestaoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected GestaoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -403,34 +403,34 @@ namespace Gestão_de_Ocorrencias {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public gestaoRow this[int index] {
+            public GestaoRow this[int index] {
                 get {
-                    return ((gestaoRow)(this.Rows[index]));
+                    return ((GestaoRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event gestaoRowChangeEventHandler gestaoRowChanging;
+            public event GestaoRowChangeEventHandler GestaoRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event gestaoRowChangeEventHandler gestaoRowChanged;
+            public event GestaoRowChangeEventHandler GestaoRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event gestaoRowChangeEventHandler gestaoRowDeleting;
+            public event GestaoRowChangeEventHandler GestaoRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event gestaoRowChangeEventHandler gestaoRowDeleted;
+            public event GestaoRowChangeEventHandler GestaoRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddgestaoRow(gestaoRow row) {
+            public void AddGestaoRow(GestaoRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public gestaoRow AddgestaoRow(System.DateTime dtmData, System.TimeSpan hHora, string txtTitulo, string txtDescricao, string cboGravidade, string cboOperador, string txtTurno, System.DateTime ID) {
-                gestaoRow rowgestaoRow = ((gestaoRow)(this.NewRow()));
+            public GestaoRow AddGestaoRow(System.DateTime dtmData, System.DateTime hHora, string txtTitulo, string txtDescricao, string cboGravidade, string cboOperador, string txtTurno, string ID) {
+                GestaoRow rowGestaoRow = ((GestaoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         dtmData,
                         hHora,
@@ -440,22 +440,22 @@ namespace Gestão_de_Ocorrencias {
                         cboOperador,
                         txtTurno,
                         ID};
-                rowgestaoRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowgestaoRow);
-                return rowgestaoRow;
+                rowGestaoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowGestaoRow);
+                return rowGestaoRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public gestaoRow FindBydtmData(System.DateTime dtmData) {
-                return ((gestaoRow)(this.Rows.Find(new object[] {
+            public GestaoRow FindBydtmData(System.DateTime dtmData) {
+                return ((GestaoRow)(this.Rows.Find(new object[] {
                             dtmData})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                gestaoDataTable cln = ((gestaoDataTable)(base.Clone()));
+                GestaoDataTable cln = ((GestaoDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -463,7 +463,7 @@ namespace Gestão_de_Ocorrencias {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new gestaoDataTable();
+                return new GestaoDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -484,7 +484,7 @@ namespace Gestão_de_Ocorrencias {
             private void InitClass() {
                 this.columndtmData = new global::System.Data.DataColumn("dtmData", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndtmData);
-                this.columnhHora = new global::System.Data.DataColumn("hHora", typeof(global::System.TimeSpan), null, global::System.Data.MappingType.Element);
+                this.columnhHora = new global::System.Data.DataColumn("hHora", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnhHora);
                 this.columntxtTitulo = new global::System.Data.DataColumn("txtTitulo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntxtTitulo);
@@ -496,7 +496,7 @@ namespace Gestão_de_Ocorrencias {
                 base.Columns.Add(this.columncboOperador);
                 this.columntxtTurno = new global::System.Data.DataColumn("txtTurno", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntxtTurno);
-                this.columnID = new global::System.Data.DataColumn("ID", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                this.columnID = new global::System.Data.DataColumn("ID", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnID);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columndtmData}, true));
@@ -506,33 +506,34 @@ namespace Gestão_de_Ocorrencias {
                 this.columntxtDescricao.MaxLength = 2147483647;
                 this.columncboGravidade.MaxLength = 2147483647;
                 this.columncboOperador.MaxLength = 2147483647;
-                this.columntxtTurno.MaxLength = 10;
+                this.columntxtTurno.MaxLength = 2147483647;
+                this.columnID.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public gestaoRow NewgestaoRow() {
-                return ((gestaoRow)(this.NewRow()));
+            public GestaoRow NewGestaoRow() {
+                return ((GestaoRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new gestaoRow(builder);
+                return new GestaoRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(gestaoRow);
+                return typeof(GestaoRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.gestaoRowChanged != null)) {
-                    this.gestaoRowChanged(this, new gestaoRowChangeEvent(((gestaoRow)(e.Row)), e.Action));
+                if ((this.GestaoRowChanged != null)) {
+                    this.GestaoRowChanged(this, new GestaoRowChangeEvent(((GestaoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -540,8 +541,8 @@ namespace Gestão_de_Ocorrencias {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.gestaoRowChanging != null)) {
-                    this.gestaoRowChanging(this, new gestaoRowChangeEvent(((gestaoRow)(e.Row)), e.Action));
+                if ((this.GestaoRowChanging != null)) {
+                    this.GestaoRowChanging(this, new GestaoRowChangeEvent(((GestaoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -549,8 +550,8 @@ namespace Gestão_de_Ocorrencias {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.gestaoRowDeleted != null)) {
-                    this.gestaoRowDeleted(this, new gestaoRowChangeEvent(((gestaoRow)(e.Row)), e.Action));
+                if ((this.GestaoRowDeleted != null)) {
+                    this.GestaoRowDeleted(this, new GestaoRowChangeEvent(((GestaoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -558,14 +559,14 @@ namespace Gestão_de_Ocorrencias {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.gestaoRowDeleting != null)) {
-                    this.gestaoRowDeleting(this, new gestaoRowChangeEvent(((gestaoRow)(e.Row)), e.Action));
+                if ((this.GestaoRowDeleting != null)) {
+                    this.GestaoRowDeleting(this, new GestaoRowChangeEvent(((GestaoRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovegestaoRow(gestaoRow row) {
+            public void RemoveGestaoRow(GestaoRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -574,7 +575,7 @@ namespace Gestão_de_Ocorrencias {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSet1 ds = new DataSet1();
+                testesDataSet ds = new testesDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -592,7 +593,7 @@ namespace Gestão_de_Ocorrencias {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "gestaoDataTable";
+                attribute2.FixedValue = "GestaoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -636,41 +637,41 @@ namespace Gestão_de_Ocorrencias {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class gestaoRow : global::System.Data.DataRow {
+        public partial class GestaoRow : global::System.Data.DataRow {
             
-            private gestaoDataTable tablegestao;
+            private GestaoDataTable tableGestao;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal gestaoRow(global::System.Data.DataRowBuilder rb) : 
+            internal GestaoRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablegestao = ((gestaoDataTable)(this.Table));
+                this.tableGestao = ((GestaoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public System.DateTime dtmData {
                 get {
-                    return ((global::System.DateTime)(this[this.tablegestao.dtmDataColumn]));
+                    return ((global::System.DateTime)(this[this.tableGestao.dtmDataColumn]));
                 }
                 set {
-                    this[this.tablegestao.dtmDataColumn] = value;
+                    this[this.tableGestao.dtmDataColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.TimeSpan hHora {
+            public System.DateTime hHora {
                 get {
                     try {
-                        return ((global::System.TimeSpan)(this[this.tablegestao.hHoraColumn]));
+                        return ((global::System.DateTime)(this[this.tableGestao.hHoraColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'hHora\' in table \'gestao\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'hHora\' in table \'Gestao\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegestao.hHoraColumn] = value;
+                    this[this.tableGestao.hHoraColumn] = value;
                 }
             }
             
@@ -679,14 +680,14 @@ namespace Gestão_de_Ocorrencias {
             public string txtTitulo {
                 get {
                     try {
-                        return ((string)(this[this.tablegestao.txtTituloColumn]));
+                        return ((string)(this[this.tableGestao.txtTituloColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'txtTitulo\' in table \'gestao\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'txtTitulo\' in table \'Gestao\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegestao.txtTituloColumn] = value;
+                    this[this.tableGestao.txtTituloColumn] = value;
                 }
             }
             
@@ -695,14 +696,14 @@ namespace Gestão_de_Ocorrencias {
             public string txtDescricao {
                 get {
                     try {
-                        return ((string)(this[this.tablegestao.txtDescricaoColumn]));
+                        return ((string)(this[this.tableGestao.txtDescricaoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'txtDescricao\' in table \'gestao\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'txtDescricao\' in table \'Gestao\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegestao.txtDescricaoColumn] = value;
+                    this[this.tableGestao.txtDescricaoColumn] = value;
                 }
             }
             
@@ -711,14 +712,14 @@ namespace Gestão_de_Ocorrencias {
             public string cboGravidade {
                 get {
                     try {
-                        return ((string)(this[this.tablegestao.cboGravidadeColumn]));
+                        return ((string)(this[this.tableGestao.cboGravidadeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cboGravidade\' in table \'gestao\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'cboGravidade\' in table \'Gestao\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegestao.cboGravidadeColumn] = value;
+                    this[this.tableGestao.cboGravidadeColumn] = value;
                 }
             }
             
@@ -727,14 +728,14 @@ namespace Gestão_de_Ocorrencias {
             public string cboOperador {
                 get {
                     try {
-                        return ((string)(this[this.tablegestao.cboOperadorColumn]));
+                        return ((string)(this[this.tableGestao.cboOperadorColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cboOperador\' in table \'gestao\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'cboOperador\' in table \'Gestao\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegestao.cboOperadorColumn] = value;
+                    this[this.tableGestao.cboOperadorColumn] = value;
                 }
             }
             
@@ -743,115 +744,115 @@ namespace Gestão_de_Ocorrencias {
             public string txtTurno {
                 get {
                     try {
-                        return ((string)(this[this.tablegestao.txtTurnoColumn]));
+                        return ((string)(this[this.tableGestao.txtTurnoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'txtTurno\' in table \'gestao\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'txtTurno\' in table \'Gestao\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegestao.txtTurnoColumn] = value;
+                    this[this.tableGestao.txtTurnoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public System.DateTime ID {
+            public string ID {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tablegestao.IDColumn]));
+                        return ((string)(this[this.tableGestao.IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'gestao\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ID\' in table \'Gestao\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablegestao.IDColumn] = value;
+                    this[this.tableGestao.IDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IshHoraNull() {
-                return this.IsNull(this.tablegestao.hHoraColumn);
+                return this.IsNull(this.tableGestao.hHoraColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SethHoraNull() {
-                this[this.tablegestao.hHoraColumn] = global::System.Convert.DBNull;
+                this[this.tableGestao.hHoraColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IstxtTituloNull() {
-                return this.IsNull(this.tablegestao.txtTituloColumn);
+                return this.IsNull(this.tableGestao.txtTituloColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettxtTituloNull() {
-                this[this.tablegestao.txtTituloColumn] = global::System.Convert.DBNull;
+                this[this.tableGestao.txtTituloColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IstxtDescricaoNull() {
-                return this.IsNull(this.tablegestao.txtDescricaoColumn);
+                return this.IsNull(this.tableGestao.txtDescricaoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettxtDescricaoNull() {
-                this[this.tablegestao.txtDescricaoColumn] = global::System.Convert.DBNull;
+                this[this.tableGestao.txtDescricaoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscboGravidadeNull() {
-                return this.IsNull(this.tablegestao.cboGravidadeColumn);
+                return this.IsNull(this.tableGestao.cboGravidadeColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetcboGravidadeNull() {
-                this[this.tablegestao.cboGravidadeColumn] = global::System.Convert.DBNull;
+                this[this.tableGestao.cboGravidadeColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IscboOperadorNull() {
-                return this.IsNull(this.tablegestao.cboOperadorColumn);
+                return this.IsNull(this.tableGestao.cboOperadorColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetcboOperadorNull() {
-                this[this.tablegestao.cboOperadorColumn] = global::System.Convert.DBNull;
+                this[this.tableGestao.cboOperadorColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IstxtTurnoNull() {
-                return this.IsNull(this.tablegestao.txtTurnoColumn);
+                return this.IsNull(this.tableGestao.txtTurnoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SettxtTurnoNull() {
-                this[this.tablegestao.txtTurnoColumn] = global::System.Convert.DBNull;
+                this[this.tableGestao.txtTurnoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsIDNull() {
-                return this.IsNull(this.tablegestao.IDColumn);
+                return this.IsNull(this.tableGestao.IDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetIDNull() {
-                this[this.tablegestao.IDColumn] = global::System.Convert.DBNull;
+                this[this.tableGestao.IDColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -859,22 +860,22 @@ namespace Gestão_de_Ocorrencias {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class gestaoRowChangeEvent : global::System.EventArgs {
+        public class GestaoRowChangeEvent : global::System.EventArgs {
             
-            private gestaoRow eventRow;
+            private GestaoRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public gestaoRowChangeEvent(gestaoRow row, global::System.Data.DataRowAction action) {
+            public GestaoRowChangeEvent(GestaoRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public gestaoRow Row {
+            public GestaoRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -890,7 +891,7 @@ namespace Gestão_de_Ocorrencias {
         }
     }
 }
-namespace Gestão_de_Ocorrencias.DataSet1TableAdapters {
+namespace Gestão_de_Ocorrencias.testesDataSetTableAdapters {
     
     
     /// <summary>
@@ -902,7 +903,7 @@ namespace Gestão_de_Ocorrencias.DataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class gestaoTableAdapter : global::System.ComponentModel.Component {
+    public partial class GestaoTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -916,7 +917,7 @@ namespace Gestão_de_Ocorrencias.DataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public gestaoTableAdapter() {
+        public GestaoTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1013,60 +1014,53 @@ namespace Gestão_de_Ocorrencias.DataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "gestao";
+            tableMapping.DataSetTable = "Gestao";
             tableMapping.ColumnMappings.Add("dtmData", "dtmData");
             tableMapping.ColumnMappings.Add("hHora", "hHora");
-            tableMapping.ColumnMappings.Add("strTitulo", "txtTitulo");
-            tableMapping.ColumnMappings.Add("strDescricao", "txtDescricao");
-            tableMapping.ColumnMappings.Add("strGravidade", "cboGravidade");
-            tableMapping.ColumnMappings.Add("strOperador", "cboOperador");
-            tableMapping.ColumnMappings.Add("strTurno", "txtTurno");
-            tableMapping.ColumnMappings.Add("bitAnulado", "ID");
+            tableMapping.ColumnMappings.Add("txtTitulo", "txtTitulo");
+            tableMapping.ColumnMappings.Add("txtDescricao", "txtDescricao");
+            tableMapping.ColumnMappings.Add("cboGravidade", "cboGravidade");
+            tableMapping.ColumnMappings.Add("cboOperador", "cboOperador");
+            tableMapping.ColumnMappings.Add("txtTurno", "txtTurno");
+            tableMapping.ColumnMappings.Add("ID", "ID");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[gestao] WHERE (([dtmData] = @Original_dtmData) AND ((@IsNull_hHora = 1 AND [hHora] IS NULL) OR ([hHora] = @Original_hHora)) AND ((@IsNull_strTurno = 1 AND [strTurno] IS NULL) OR ([strTurno] = @Original_strTurno)) AND ((@IsNull_bitAnulado = 1 AND [bitAnulado] IS NULL) OR ([bitAnulado] = @Original_bitAnulado)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Gestao] WHERE (([dtmData] = @Original_dtmData) AND ((@IsNull_h" +
+                "Hora = 1 AND [hHora] IS NULL) OR ([hHora] = @Original_hHora)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dtmData", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtmData", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hHora", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hHora", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_strTurno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strTurno", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_strTurno", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strTurno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bitAnulado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bitAnulado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bitAnulado", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bitAnulado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hHora", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[gestao] ([dtmData], [hHora], [strTitulo], [strDescricao], [strGravidade], [strOperador], [strTurno], [bitAnulado]) VALUES (@dtmData, @hHora, @strTitulo, @strDescricao, @strGravidade, @strOperador, @strTurno, @bitAnulado);
-SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTurno, bitAnulado FROM gestao WHERE (dtmData = @dtmData)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Gestao] ([dtmData], [hHora], [txtTitulo], [txtDescricao], [cboGravidade], [cboOperador], [txtTurno], [ID]) VALUES (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID);
+SELECT dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID FROM Gestao WHERE (dtmData = @dtmData)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtmData", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtmData", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hHora", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strTitulo", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strTitulo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strDescricao", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strDescricao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strGravidade", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strGravidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strOperador", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strOperador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strTurno", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strTurno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bitAnulado", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bitAnulado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hHora", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@txtTitulo", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "txtTitulo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@txtDescricao", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "txtDescricao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cboGravidade", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cboGravidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cboOperador", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cboOperador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@txtTurno", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "txtTurno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[gestao] SET [dtmData] = @dtmData, [hHora] = @hHora, [strTitulo] = @strTitulo, [strDescricao] = @strDescricao, [strGravidade] = @strGravidade, [strOperador] = @strOperador, [strTurno] = @strTurno, [bitAnulado] = @bitAnulado WHERE (([dtmData] = @Original_dtmData) AND ((@IsNull_hHora = 1 AND [hHora] IS NULL) OR ([hHora] = @Original_hHora)) AND ((@IsNull_strTurno = 1 AND [strTurno] IS NULL) OR ([strTurno] = @Original_strTurno)) AND ((@IsNull_bitAnulado = 1 AND [bitAnulado] IS NULL) OR ([bitAnulado] = @Original_bitAnulado)));
-SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTurno, bitAnulado FROM gestao WHERE (dtmData = @dtmData)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Gestao] SET [dtmData] = @dtmData, [hHora] = @hHora, [txtTitulo] = @txtTitulo, [txtDescricao] = @txtDescricao, [cboGravidade] = @cboGravidade, [cboOperador] = @cboOperador, [txtTurno] = @txtTurno, [ID] = @ID WHERE (([dtmData] = @Original_dtmData) AND ((@IsNull_hHora = 1 AND [hHora] IS NULL) OR ([hHora] = @Original_hHora)));
+SELECT dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID FROM Gestao WHERE (dtmData = @dtmData)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@dtmData", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtmData", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hHora", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strTitulo", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strTitulo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strDescricao", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strDescricao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strGravidade", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strGravidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strOperador", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strOperador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@strTurno", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strTurno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@bitAnulado", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bitAnulado", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hHora", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@txtTitulo", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "txtTitulo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@txtDescricao", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "txtDescricao", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cboGravidade", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cboGravidade", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@cboOperador", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "cboOperador", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@txtTurno", global::System.Data.SqlDbType.Text, 0, global::System.Data.ParameterDirection.Input, 0, 0, "txtTurno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_dtmData", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "dtmData", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_hHora", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hHora", global::System.Data.SqlDbType.Time, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_strTurno", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strTurno", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_strTurno", global::System.Data.SqlDbType.NChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "strTurno", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_bitAnulado", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bitAnulado", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_bitAnulado", global::System.Data.SqlDbType.Date, 0, global::System.Data.ParameterDirection.Input, 0, 0, "bitAnulado", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_hHora", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "hHora", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1082,8 +1076,8 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTur" +
-                "no, bitAnulado FROM dbo.gestao";
+            this._commandCollection[0].CommandText = "SELECT dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTur" +
+                "no, ID FROM dbo.Gestao";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1091,7 +1085,7 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.gestaoDataTable dataTable) {
+        public virtual int Fill(testesDataSet.GestaoDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1104,9 +1098,9 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.gestaoDataTable GetData() {
+        public virtual testesDataSet.GestaoDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet1.gestaoDataTable dataTable = new DataSet1.gestaoDataTable();
+            testesDataSet.GestaoDataTable dataTable = new testesDataSet.GestaoDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1114,15 +1108,15 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet1.gestaoDataTable dataTable) {
+        public virtual int Update(testesDataSet.GestaoDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "gestao");
+        public virtual int Update(testesDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "Gestao");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1144,31 +1138,15 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.DateTime Original_dtmData, global::System.Nullable<global::System.TimeSpan> Original_hHora, string Original_strTurno, global::System.Nullable<global::System.DateTime> Original_bitAnulado) {
+        public virtual int Delete(System.DateTime Original_dtmData, global::System.Nullable<global::System.DateTime> Original_hHora) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.DateTime)(Original_dtmData));
             if ((Original_hHora.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.TimeSpan)(Original_hHora.Value));
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((System.DateTime)(Original_hHora.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((Original_strTurno == null)) {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[3].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[4].Value = ((string)(Original_strTurno));
-            }
-            if ((Original_bitAnulado.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[6].Value = ((System.DateTime)(Original_bitAnulado.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1190,49 +1168,49 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.DateTime dtmData, global::System.Nullable<global::System.TimeSpan> hHora, string strTitulo, string strDescricao, string strGravidade, string strOperador, string strTurno, global::System.Nullable<global::System.DateTime> bitAnulado) {
+        public virtual int Insert(System.DateTime dtmData, global::System.Nullable<global::System.DateTime> hHora, string txtTitulo, string txtDescricao, string cboGravidade, string cboOperador, string txtTurno, string ID) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(dtmData));
             if ((hHora.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((System.TimeSpan)(hHora.Value));
+                this.Adapter.InsertCommand.Parameters[1].Value = ((System.DateTime)(hHora.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((strTitulo == null)) {
+            if ((txtTitulo == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(strTitulo));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(txtTitulo));
             }
-            if ((strDescricao == null)) {
+            if ((txtDescricao == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(strDescricao));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(txtDescricao));
             }
-            if ((strGravidade == null)) {
+            if ((cboGravidade == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(strGravidade));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(cboGravidade));
             }
-            if ((strOperador == null)) {
+            if ((cboOperador == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(strOperador));
+                this.Adapter.InsertCommand.Parameters[5].Value = ((string)(cboOperador));
             }
-            if ((strTurno == null)) {
+            if ((txtTurno == null)) {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(strTurno));
+                this.Adapter.InsertCommand.Parameters[6].Value = ((string)(txtTurno));
             }
-            if ((bitAnulado.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((System.DateTime)(bitAnulado.Value));
+            if ((ID == null)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(ID));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1254,74 +1232,58 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.DateTime dtmData, global::System.Nullable<global::System.TimeSpan> hHora, string strTitulo, string strDescricao, string strGravidade, string strOperador, string strTurno, global::System.Nullable<global::System.DateTime> bitAnulado, System.DateTime Original_dtmData, global::System.Nullable<global::System.TimeSpan> Original_hHora, string Original_strTurno, global::System.Nullable<global::System.DateTime> Original_bitAnulado) {
+        public virtual int Update(System.DateTime dtmData, global::System.Nullable<global::System.DateTime> hHora, string txtTitulo, string txtDescricao, string cboGravidade, string cboOperador, string txtTurno, string ID, System.DateTime Original_dtmData, global::System.Nullable<global::System.DateTime> Original_hHora) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(dtmData));
             if ((hHora.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.TimeSpan)(hHora.Value));
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((System.DateTime)(hHora.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((strTitulo == null)) {
+            if ((txtTitulo == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(strTitulo));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(txtTitulo));
             }
-            if ((strDescricao == null)) {
+            if ((txtDescricao == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(strDescricao));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(txtDescricao));
             }
-            if ((strGravidade == null)) {
+            if ((cboGravidade == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(strGravidade));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(cboGravidade));
             }
-            if ((strOperador == null)) {
+            if ((cboOperador == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(strOperador));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(cboOperador));
             }
-            if ((strTurno == null)) {
+            if ((txtTurno == null)) {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(strTurno));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(txtTurno));
             }
-            if ((bitAnulado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(bitAnulado.Value));
+            if ((ID == null)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(ID));
             }
             this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Original_dtmData));
             if ((Original_hHora.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.TimeSpan)(Original_hHora.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_hHora.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            if ((Original_strTurno == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_strTurno));
-            }
-            if ((Original_bitAnulado.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_bitAnulado.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[14].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1343,8 +1305,8 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.TimeSpan> hHora, string strTitulo, string strDescricao, string strGravidade, string strOperador, string strTurno, global::System.Nullable<global::System.DateTime> bitAnulado, System.DateTime Original_dtmData, global::System.Nullable<global::System.TimeSpan> Original_hHora, string Original_strTurno, global::System.Nullable<global::System.DateTime> Original_bitAnulado) {
-            return this.Update(Original_dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTurno, bitAnulado, Original_dtmData, Original_hHora, Original_strTurno, Original_bitAnulado);
+        public virtual int Update(global::System.Nullable<global::System.DateTime> hHora, string txtTitulo, string txtDescricao, string cboGravidade, string cboOperador, string txtTurno, string ID, System.DateTime Original_dtmData, global::System.Nullable<global::System.DateTime> Original_hHora) {
+            return this.Update(Original_dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID, Original_dtmData, Original_hHora);
         }
     }
     
@@ -1360,7 +1322,7 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         
         private UpdateOrderOption _updateOrder;
         
-        private gestaoTableAdapter _gestaoTableAdapter;
+        private GestaoTableAdapter _gestaoTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1382,7 +1344,7 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public gestaoTableAdapter gestaoTableAdapter {
+        public GestaoTableAdapter GestaoTableAdapter {
             get {
                 return this._gestaoTableAdapter;
             }
@@ -1439,10 +1401,10 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateUpdatedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(testesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._gestaoTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.gestao.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                global::System.Data.DataRow[] updatedRows = dataSet.Gestao.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
@@ -1458,10 +1420,10 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateInsertedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(testesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._gestaoTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.gestao.Select(null, null, global::System.Data.DataViewRowState.Added);
+                global::System.Data.DataRow[] addedRows = dataSet.Gestao.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._gestaoTableAdapter.Update(addedRows));
@@ -1476,10 +1438,10 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(testesDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._gestaoTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.gestao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                global::System.Data.DataRow[] deletedRows = dataSet.Gestao.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._gestaoTableAdapter.Update(deletedRows));
@@ -1518,7 +1480,7 @@ SELECT dtmData, hHora, strTitulo, strDescricao, strGravidade, strOperador, strTu
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public virtual int UpdateAll(DataSet1 dataSet) {
+        public virtual int UpdateAll(testesDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

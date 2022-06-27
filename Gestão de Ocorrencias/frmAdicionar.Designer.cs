@@ -33,7 +33,6 @@ namespace Gestão_de_Ocorrencias
             this.label1 = new System.Windows.Forms.Label();
             this.dtmData = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             this.label3 = new System.Windows.Forms.Label();
-            this.mskHora = new Syncfusion.Windows.Forms.Tools.MaskedEditBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,12 +44,14 @@ namespace Gestão_de_Ocorrencias
             this.label6 = new System.Windows.Forms.Label();
             this.txtTurno = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.mskHora)).BeginInit();
+            this.hHora = new Syncfusion.WinForms.Input.SfDateTimeEdit();
+            this.dataSet11 = new Gestão_de_Ocorrencias.DataSet1();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescricao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTitulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboGravidade)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboOperador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTurno)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -82,18 +83,6 @@ namespace Gestão_de_Ocorrencias
             this.label3.Size = new System.Drawing.Size(47, 21);
             this.label3.TabIndex = 4;
             this.label3.Text = "Hora:";
-            // 
-            // mskHora
-            // 
-            this.mskHora.BeforeTouchSize = new System.Drawing.Size(75, 29);
-            this.mskHora.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mskHora.Location = new System.Drawing.Point(125, 73);
-            this.mskHora.Mask = "##:##";
-            this.mskHora.MaxLength = 5;
-            this.mskHora.Name = "mskHora";
-            this.mskHora.Size = new System.Drawing.Size(75, 29);
-            this.mskHora.TabIndex = 5;
-            this.mskHora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label2
             // 
@@ -127,7 +116,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtDescricao
             // 
-            this.txtDescricao.BeforeTouchSize = new System.Drawing.Size(75, 29);
+            this.txtDescricao.BeforeTouchSize = new System.Drawing.Size(499, 32);
             this.txtDescricao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(125, 268);
             this.txtDescricao.Multiline = true;
@@ -137,7 +126,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtTitulo
             // 
-            this.txtTitulo.BeforeTouchSize = new System.Drawing.Size(75, 29);
+            this.txtTitulo.BeforeTouchSize = new System.Drawing.Size(499, 32);
             this.txtTitulo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.Location = new System.Drawing.Point(125, 115);
             this.txtTitulo.Multiline = true;
@@ -151,6 +140,7 @@ namespace Gestão_de_Ocorrencias
             this.cboGravidade.Location = new System.Drawing.Point(125, 225);
             this.cboGravidade.Name = "cboGravidade";
             this.cboGravidade.Size = new System.Drawing.Size(232, 28);
+            this.cboGravidade.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.cboGravidade.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cboGravidade.TabIndex = 11;
             // 
@@ -171,6 +161,7 @@ namespace Gestão_de_Ocorrencias
             this.cboOperador.Location = new System.Drawing.Point(125, 191);
             this.cboOperador.Name = "cboOperador";
             this.cboOperador.Size = new System.Drawing.Size(232, 28);
+            this.cboOperador.Style.DropDownStyle.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.cboOperador.Style.TokenStyle.CloseButtonBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.cboOperador.TabIndex = 14;
             // 
@@ -186,7 +177,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtTurno
             // 
-            this.txtTurno.BeforeTouchSize = new System.Drawing.Size(75, 29);
+            this.txtTurno.BeforeTouchSize = new System.Drawing.Size(499, 32);
             this.txtTurno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTurno.Location = new System.Drawing.Point(125, 153);
             this.txtTurno.Multiline = true;
@@ -204,12 +195,29 @@ namespace Gestão_de_Ocorrencias
             this.label7.TabIndex = 15;
             this.label7.Text = "Turno:";
             // 
+            // hHora
+            // 
+            this.hHora.Cursor = System.Windows.Forms.Cursors.Default;
+            this.hHora.DateTimeEditingMode = Syncfusion.WinForms.Input.Enums.DateTimeEditingMode.Mask;
+            this.hHora.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.ShortTime;
+            this.hHora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hHora.Location = new System.Drawing.Point(125, 73);
+            this.hHora.Name = "hHora";
+            this.hHora.Size = new System.Drawing.Size(232, 31);
+            this.hHora.TabIndex = 17;
+            // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // adcAdicionar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 520);
+            this.Controls.Add(this.hHora);
             this.Controls.Add(this.txtTurno);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cboOperador);
@@ -221,7 +229,6 @@ namespace Gestão_de_Ocorrencias
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.mskHora);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.dtmData);
             this.Controls.Add(this.label1);
@@ -232,12 +239,12 @@ namespace Gestão_de_Ocorrencias
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar";
             this.Load += new System.EventHandler(this.adcAdicionar_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.mskHora)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescricao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTitulo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboGravidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboOperador)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTurno)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet11)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,7 +255,6 @@ namespace Gestão_de_Ocorrencias
         private System.Windows.Forms.Label label1;
         private Syncfusion.WinForms.Input.SfDateTimeEdit dtmData;
         private System.Windows.Forms.Label label3;
-        private Syncfusion.Windows.Forms.Tools.MaskedEditBox mskHora;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -260,5 +266,7 @@ namespace Gestão_de_Ocorrencias
         private System.Windows.Forms.Label label6;
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtTurno;
         private System.Windows.Forms.Label label7;
+        private DataSet1 dataSet11;
+        private Syncfusion.WinForms.Input.SfDateTimeEdit hHora;
     }
 }

@@ -15,6 +15,7 @@ namespace Gestão_de_Ocorrencias
             InitializeComponent();
         }
 
+        string connetionString;
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             adcAdicionar adc = new adcAdicionar();
@@ -24,13 +25,8 @@ namespace Gestão_de_Ocorrencias
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Refresh();
-        }
-        void update()
-        {
-            // Inicia uma connetionString
-            string connetionString = null;
-            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes; Password=testes";
+           
+            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes";
             SqlConnection cmd = new SqlConnection(connetionString);
 
             try
@@ -46,29 +42,48 @@ namespace Gestão_de_Ocorrencias
 
             // Inicia o dataset
             DataSet ds = new DataSet();
-
+            string table = "SELECT * FROM Gestao";
             // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
             // do produto e a conexão com o banco de dados
 
-            SqlDataAdapter da = new SqlDataAdapter("Select  intCodigo as 'Código', ID as 'ID', FROM Gestao WHERE ID=1", cmd);
+            SqlDataAdapter da = new SqlDataAdapter(table, cmd);
             da.Fill(ds, "Gestao");
             sfDataGrid1.DataSource = ds.Tables["Gestao"];
 
-            SqlCommand CmdCab = new SqlCommand("UPDATE Gestao Set ID=@ID " + " WHERE intCodigo = @ID", cmd);
-            int rowsaffected = (int)CmdCab.ExecuteScalar();
+        }
 
-            try
-            {
-                rowsaffected = CmdCab.ExecuteNonQuery(); // Executando o comando
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Inserir DocCab: " + ex.ToString());
-                return; // Retorna o valor
-            }
-            cmd.Close(); // Fecha a conexão com a base de dados
-            MessageBox.Show("Ocorrência removida com sucesso!", "Ocorrencias", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            update();
+        void update()
+        {
+
+            // Inicia uma connetionString
+            //string connetionString = null;
+            //connetionString = @"Data Source=asus-portatil.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes";
+            //SqlConnection cmd = new SqlConnection(connetionString);
+
+            //try
+            // {
+            //  cmd.Open(); // Abre a base de dados
+            // }
+
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //     return; // Retorna o valor
+            //}
+
+            // Inicia o dataset
+            //DataSet ds = new DataSet();
+            //string table = "SELECT * FROM Gestao";
+            // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
+            // do produto e a conexão com o banco de dados
+
+            // SqlDataAdapter da = new SqlDataAdapter(table, cmd);
+            //   da.Fill(ds);*/
+
+            DataSet1TableAdapters.gestaoTableAdapter gestaoTableAdapter = new DataSet1TableAdapters.gestaoTableAdapter();
+            DataSet1.gestaoDataTable gestaos = new DataSet1.gestaoDataTable();
+            gestaoTableAdapter.Fill(gestaos);
+            sfDataGrid1.DataSource = gestaos;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -99,7 +114,7 @@ namespace Gestão_de_Ocorrencias
                 {
                     // Inicia uma conexao
                     string connetionString = null;
-                    connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; Integrated Security=true; User ID=testes; Password=testes";
+                    connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes";
                     SqlConnection cnn = new SqlConnection(connetionString);
                     int rowsaffected = 0;
                     try
