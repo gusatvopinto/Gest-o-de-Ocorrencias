@@ -14,8 +14,7 @@ namespace Gestão_de_Ocorrencias
             InitializeComponent();
         }
 
-        private string connetionString = (@"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes");
-
+        private readonly string connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes";
         public string ConnetionString { get; set; }
         public string tipo { get; set; }
 
@@ -33,9 +32,7 @@ namespace Gestão_de_Ocorrencias
 
             cboGravidade.DataSource = USStates;
             cboOperador.DataSource = Operadores;
-
             dtmData.Culture = CultureInfo.CurrentCulture;
-
         }
 
         string querry = @"INSERT INTO Gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID) Values (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)";
@@ -44,6 +41,7 @@ namespace Gestão_de_Ocorrencias
         {
             using (SqlConnection connection = new SqlConnection(connetionString))
             {
+                connection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(querry, connection))
                 {
                     sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Date).Value = dtmData.Value;
@@ -55,21 +53,20 @@ namespace Gestão_de_Ocorrencias
                     sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text;
                     sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.Int).Value = Id;
 
-                    connection.Open();
-                    SqlCommand com = new SqlCommand(@"INSERT INTO Gestao (dtmData, hHora, txtTitulo, txtDescricao, cboGravidade, cboOperador, txtTurno, ID) Values (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)");
+                    SqlCommand com = new SqlCommand(@"SELECT * FROM Gestao WHERE ID=0");
 
                     string sql = sqlCommand.ToString();
                     try
                     {
-                        sqlCommand.ExecuteNonQuery();
-
+                        sqlCommand.ExecuteScalar();
                     }
                     catch (FormatException)
                     {
                         MessageBox.Show("Informação Adicionada", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
                     }
+                    connection.Close();
                 }
-                connection.Close();
             }
             SqlConnection sqlConnection = new SqlConnection();
             MessageBox.Show("Ocorrência inserida com sucesso: !", "Ocorrência", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -14,6 +14,8 @@ namespace Gestão_de_Ocorrencias
         {
             InitializeComponent();
         }
+
+        public Int32 codigoreg;
         SqlConnection cmd = new SqlConnection();
         string connetionString;
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -27,7 +29,7 @@ namespace Gestão_de_Ocorrencias
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS; Initial Catalog=testes; User ID=testes; Password=testes";
+            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes";
             cmd.ConnectionString = connetionString;
 
             try
@@ -60,15 +62,9 @@ namespace Gestão_de_Ocorrencias
         private void btnModificar_Click(object sender, EventArgs e)
         {
             var selectedItem = sfDataGrid1.CurrentItem as DataRowView;
-
             if (selectedItem != null)
             {
-
-                // Seleciona os items do DataGridView 
-                var dataRow = (selectedItem as DataRowView).Row;
-
                 adcModificar adc = new adcModificar();
-                adc.codigoreg = Convert.ToInt32(dataRow[0].ToString());
                 adc.ShowDialog();
                 update();
                 Refresh();
@@ -81,12 +77,11 @@ namespace Gestão_de_Ocorrencias
             if (selectedItem != null)
             {
                 var dataRow = (selectedItem as DataRowView).Row; // Seleciona a coluna do item 
-
                 if (MessageBox.Show("Tem a certeza que deseja remover esta ocorrência?", "Remover Ocorrência", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
                     // Inicia uma conexao
                     string connetionString = null;
-                    connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS.testes.dbo; Initial Catalog=testes; Persist Security Info=True; User ID=testes; Password=testes";
+                    connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes";
                     SqlConnection cnn = new SqlConnection(connetionString);
                     int rowsaffected = 0;
                     try
@@ -99,6 +94,7 @@ namespace Gestão_de_Ocorrencias
                         MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
 
                     // Insere os dados dentro do Sql
                     SqlCommand CmdCab = new SqlCommand("UPDATE Gestao SET ID=1 WHERE intCodigo = " + dataRow[0].ToString(), cnn);
