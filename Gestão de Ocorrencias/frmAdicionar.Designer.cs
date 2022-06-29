@@ -29,6 +29,7 @@ namespace Gestão_de_Ocorrencias
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(adcAdicionar));
             this.label1 = new System.Windows.Forms.Label();
             this.dtmData = new Syncfusion.WinForms.Input.SfDateTimeEdit();
@@ -44,8 +45,9 @@ namespace Gestão_de_Ocorrencias
             this.label6 = new System.Windows.Forms.Label();
             this.txtTurno = new Syncfusion.Windows.Forms.Tools.TextBoxExt();
             this.label7 = new System.Windows.Forms.Label();
-            this.hHora = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             this.dataSet11 = new Gestão_de_Ocorrencias.DataSet1();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.hHora = new Syncfusion.WinForms.Input.SfDateTimeEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescricao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTitulo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cboGravidade)).BeginInit();
@@ -116,7 +118,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtDescricao
             // 
-            this.txtDescricao.BeforeTouchSize = new System.Drawing.Size(499, 32);
+            this.txtDescricao.BeforeTouchSize = new System.Drawing.Size(499, 235);
             this.txtDescricao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(125, 268);
             this.txtDescricao.Multiline = true;
@@ -126,7 +128,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtTitulo
             // 
-            this.txtTitulo.BeforeTouchSize = new System.Drawing.Size(499, 32);
+            this.txtTitulo.BeforeTouchSize = new System.Drawing.Size(499, 235);
             this.txtTitulo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.Location = new System.Drawing.Point(125, 115);
             this.txtTitulo.Multiline = true;
@@ -177,7 +179,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtTurno
             // 
-            this.txtTurno.BeforeTouchSize = new System.Drawing.Size(499, 32);
+            this.txtTurno.BeforeTouchSize = new System.Drawing.Size(499, 235);
             this.txtTurno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTurno.Location = new System.Drawing.Point(125, 153);
             this.txtTurno.Multiline = true;
@@ -195,8 +197,14 @@ namespace Gestão_de_Ocorrencias
             this.label7.TabIndex = 15;
             this.label7.Text = "Turno:";
             // 
+            // dataSet11
+            // 
+            this.dataSet11.DataSetName = "DataSet1";
+            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // hHora
             // 
+            this.hHora.CanOverrideStyle = true;
             this.hHora.Cursor = System.Windows.Forms.Cursors.Default;
             this.hHora.DateTimeEditingMode = Syncfusion.WinForms.Input.Enums.DateTimeEditingMode.Mask;
             this.hHora.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.ShortTime;
@@ -205,11 +213,6 @@ namespace Gestão_de_Ocorrencias
             this.hHora.Name = "hHora";
             this.hHora.Size = new System.Drawing.Size(232, 31);
             this.hHora.TabIndex = 17;
-            // 
-            // dataSet11
-            // 
-            this.dataSet11.DataSetName = "DataSet1";
-            this.dataSet11.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // adcAdicionar
             // 
@@ -267,6 +270,7 @@ namespace Gestão_de_Ocorrencias
         private Syncfusion.Windows.Forms.Tools.TextBoxExt txtTurno;
         private System.Windows.Forms.Label label7;
         private DataSet1 dataSet11;
+        private System.Windows.Forms.Timer timer1;
         private Syncfusion.WinForms.Input.SfDateTimeEdit hHora;
     }
 }

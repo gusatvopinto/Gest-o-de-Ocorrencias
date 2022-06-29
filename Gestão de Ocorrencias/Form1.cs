@@ -47,7 +47,6 @@ namespace Gestão_de_Ocorrencias
 
         void update()
         {
-
             // Inicia o dataset
             DataSet ds = new DataSet();
             string table = "SELECT * FROM Gestao";
@@ -58,17 +57,12 @@ namespace Gestão_de_Ocorrencias
             da.Fill(ds, "Gestao");
             sfDataGrid1.DataSource = ds.Tables["Gestao"];
         }
-
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            var selectedItem = sfDataGrid1.CurrentItem as DataRowView;
-            if (selectedItem != null)
-            {
                 adcModificar adc = new adcModificar();
                 adc.ShowDialog();
                 update();
                 Refresh();
-            }
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
@@ -95,7 +89,6 @@ namespace Gestão_de_Ocorrencias
                         return;
                     }
 
-
                     // Insere os dados dentro do Sql
                     SqlCommand CmdCab = new SqlCommand("UPDATE Gestao SET ID=1 WHERE intCodigo = " + dataRow[0].ToString(), cnn);
 
@@ -116,7 +109,6 @@ namespace Gestão_de_Ocorrencias
                 }
             }
         }
-
         private void sfButton1_Click(object sender, EventArgs e)
         {
             // Exporta para o Excel 

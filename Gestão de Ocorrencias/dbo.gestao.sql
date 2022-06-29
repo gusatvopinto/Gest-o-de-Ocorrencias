@@ -1,12 +1,12 @@
-﻿CREATE TABLE [dbo].[gestao] (
-    [dtmData]      DATE           NOT NULL,
-    [hHora]        TIME (7)       NULL,
-    [txtTitulo]    TEXT           NULL,
-    [txtDescricao] TEXT           NULL,
-    [cboGravidade] TEXT           NULL,
-    [cboOperador]  TEXT           NULL,
-    [txtTurno]     NCHAR (10)     NULL,
-    [ID]           NVARCHAR (MAX) NULL,
-    CONSTRAINT [PK_gestão] PRIMARY KEY CLUSTERED ([dtmData] ASC)
+﻿CREATE TABLE [dbo].[Gestao] (
+    [Data]      DATE     NULL,
+    [Hora]      DATETIME NULL,
+    [Titulo]    TEXT     NULL,
+    [Descricao] TEXT     NULL,
+    [Gravidade] TEXT     NULL,
+    [Operador]  TEXT     NULL,
+    [Turno]     TEXT     NULL,
+    [ID]        INT      NOT NULL, 
+    CONSTRAINT [PK_Gestao] PRIMARY KEY ([ID])
 );
 
