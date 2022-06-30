@@ -41,6 +41,7 @@ namespace Gestão_de_Ocorrencias
             // sfDataGrid1
             // 
             this.sfDataGrid1.AccessibleName = "Table";
+            this.sfDataGrid1.AllowEditing = false;
             this.sfDataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));

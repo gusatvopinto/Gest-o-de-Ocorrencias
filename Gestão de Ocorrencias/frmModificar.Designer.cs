@@ -56,7 +56,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtTurno
             // 
-            this.txtTurno.BeforeTouchSize = new System.Drawing.Size(75, 29);
+            this.txtTurno.BeforeTouchSize = new System.Drawing.Size(499, 235);
             this.txtTurno.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTurno.Location = new System.Drawing.Point(120, 156);
             this.txtTurno.Multiline = true;
@@ -115,7 +115,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtTitulo
             // 
-            this.txtTitulo.BeforeTouchSize = new System.Drawing.Size(75, 29);
+            this.txtTitulo.BeforeTouchSize = new System.Drawing.Size(499, 235);
             this.txtTitulo.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTitulo.Location = new System.Drawing.Point(120, 118);
             this.txtTitulo.Multiline = true;
@@ -125,7 +125,7 @@ namespace Gestão_de_Ocorrencias
             // 
             // txtDescricao
             // 
-            this.txtDescricao.BeforeTouchSize = new System.Drawing.Size(75, 29);
+            this.txtDescricao.BeforeTouchSize = new System.Drawing.Size(499, 235);
             this.txtDescricao.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescricao.Location = new System.Drawing.Point(120, 271);
             this.txtDescricao.Multiline = true;

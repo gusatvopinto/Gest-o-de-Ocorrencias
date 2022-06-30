@@ -49,10 +49,9 @@ namespace Gestão_de_Ocorrencias
         {
             // Inicia o dataset
             DataSet ds = new DataSet();
-            string table = "SELECT * FROM Gestao";
+            string table = "SELECT [Data], Titulo, CAST (Hora AS TIME) AS Hora, [Descricao], Gravidade, Operador, Turno, [ID] FROM Gestao";
             // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
             // do produto e a conexão com o banco de dados
-
             SqlDataAdapter da = new SqlDataAdapter(table, cmd);
             da.Fill(ds, "Gestao");
             sfDataGrid1.DataSource = ds.Tables["Gestao"];
