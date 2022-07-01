@@ -50,6 +50,7 @@ namespace Gestão_de_Ocorrencias
             this.sfDataGrid1.Size = new System.Drawing.Size(971, 602);
             this.sfDataGrid1.TabIndex = 0;
             this.sfDataGrid1.Text = "sfDataGrid1";
+            this.sfDataGrid1.SelectionChanged += new Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventHandler(this.sfDataGrid1_SelectionChanged);
             // 
             // btnAdicionar
             // 

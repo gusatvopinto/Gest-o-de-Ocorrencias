@@ -14,10 +14,21 @@ namespace Gestão_de_Ocorrencias
         {
             InitializeComponent();
         }
-
+        adcModificar mod = new adcModificar();
         public Int32 codigoreg;
+        public DateTime Data { get; set; }
+        public DateTime Hora { get; set; }
+        public string Titulo { get; set; }
+        public string Descricao { get; set; }
+        public string Gravidade { get; set; }
+        public string Operador { get; set; }
+        public string Turno { get; set; }
+        public int ID { get; set; }
+
         SqlConnection cmd = new SqlConnection();
         string connetionString;
+
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             adcAdicionar adc = new adcAdicionar();
@@ -25,7 +36,6 @@ namespace Gestão_de_Ocorrencias
             update();
             Refresh();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -58,10 +68,10 @@ namespace Gestão_de_Ocorrencias
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
-                adcModificar adc = new adcModificar();
-                adc.ShowDialog();
-                update();
-                Refresh();
+            mod.ConnetionString = connetionString;
+            mod.ShowDialog();
+            update();
+            Refresh();
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
@@ -137,7 +147,6 @@ namespace Gestão_de_Ocorrencias
                         workBook.Version = ExcelVersion.Excel2013;
                     workBook.SaveAs(stream);
                 }
-
                 //Message box confirmation to view the created workbook.
                 if (MessageBox.Show(this.sfDataGrid1, "Quer guardar esta exportação?", "Exportação Excel", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
@@ -145,6 +154,63 @@ namespace Gestão_de_Ocorrencias
                     //Launching the Excel file using the default Application.[MS Excel Or Free ExcelViewer]
                     System.Diagnostics.Process.Start(saveFilterDialog.FileName);
                 }
+            }
+        }
+
+        private void sfDataGrid1_SelectionChanged(object sender, Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventArgs e)
+        {
+            mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
+            string CheckNull = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1].GetType().ToString();
+            if (CheckNull != "Systyem.DBNull")
+            {
+                // If not null, gets vallue of all said Entries
+                // And so it goes on down to the last condition
+                mod.Titulo = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1];
+            }
+
+            mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
+            CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[2].GetType().ToString();
+            if (CheckNull != "Systyem.DBNull")
+            {
+                // If not null, gets vallue of all said Entries
+                // And so it goes on down to the last condition
+                mod.Hora = DateTime.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[2].ToString());
+            }
+
+            mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
+            CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[3].GetType().ToString();
+            if (CheckNull != "Systyem.DBNull")
+            {
+                // If not null, gets vallue of all said Entries
+                // And so it goes on down to the last condition
+                mod.Descricao = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[3];
+            }
+
+            mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
+            CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[4].GetType().ToString();
+            if (CheckNull != "Systyem.DBNull")
+            {
+                // If not null, gets vallue of all said Entries
+                // And so it goes on down to the last condition
+                mod.Gravidade = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[4];
+            }
+
+            mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
+            CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[5].GetType().ToString();
+            if (CheckNull != "Systyem.DBNull")
+            {
+                // If not null, gets vallue of all said Entries
+                // And so it goes on down to the last condition
+                mod.Operador = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[5];
+            }
+
+
+            CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[6].GetType().ToString();
+            if (CheckNull != "Systyem.DBNull")
+            {
+                // If not null, gets vallue of all said Entries
+                // And so it goes on down to the last condition
+                mod.Turno = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[6];
             }
         }
     }
