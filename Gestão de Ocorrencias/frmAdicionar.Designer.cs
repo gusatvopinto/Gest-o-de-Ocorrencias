@@ -207,7 +207,7 @@ namespace Gestão_de_Ocorrencias
             this.hHora.CanOverrideStyle = true;
             this.hHora.Cursor = System.Windows.Forms.Cursors.Default;
             this.hHora.DateTimeEditingMode = Syncfusion.WinForms.Input.Enums.DateTimeEditingMode.Mask;
-            this.hHora.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.ShortTime;
+            this.hHora.DateTimePattern = Syncfusion.WinForms.Input.Enums.DateTimePattern.LongTime;
             this.hHora.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hHora.Location = new System.Drawing.Point(125, 73);
             this.hHora.Name = "hHora";

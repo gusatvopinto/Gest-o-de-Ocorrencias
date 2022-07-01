@@ -33,22 +33,19 @@ namespace Gestão_de_Ocorrencias
             cboOperador.DataSource = Operadores;
             dtmData.Culture = CultureInfo.CurrentCulture;
 
-             SqlConnection connection = new SqlConnection(connetionString);
-             connection.Open();
-             string comand = "SELECT MAX (ID) FROM Gestao";
-             SqlCommand command = new SqlCommand(comand, connection);
-
-             int maxid = (int)command.ExecuteScalar();
-             currentid = maxid + 1;
-             connection.Close();
-
+            SqlConnection connection = new SqlConnection(connetionString);
+            connection.Open();
+            string comand = "SELECT MAX (ID) FROM Gestao";
+            SqlCommand command = new SqlCommand(comand, connection);
+            int maxid = (int)command.ExecuteScalar();
+            currentid = maxid + 1;
+            connection.Close();
         }
 
         string querry = (@"INSERT INTO Gestao (Data, Hora, Titulo, Descricao, Gravidade, Operador, Turno, ID) Values (@dtmData, @hHora, @txtTitulo, @txtDescricao, @cboGravidade, @cboOperador, @txtTurno, @ID)");
         public int Id { get; set; }
         private void btnGravar_Click(object sender, EventArgs e)
         {
-
             using (SqlConnection connection = new SqlConnection(connetionString))
             {
                 TimeSpan dt = DateTime.Parse(hHora.Value.ToString()).TimeOfDay;
