@@ -26,7 +26,8 @@ namespace Gestão_de_Ocorrencias
         public string Gravidade { get; set;}
         public string Operador { get; set; }
         public string Turno { get; set; }
-        public int ID { get; set; }
+        public  int ID { get; set; }
+        string idnow;
 
         private void adcModificar_Load(object sender, EventArgs e)
         {
@@ -35,6 +36,7 @@ namespace Gestão_de_Ocorrencias
             USStates.Add("Alta");
             USStates.Add("Média");
             USStates.Add("Baixa");
+            idnow = ID.ToString();
 
             // Adiciona um novo operador a lista
             List<string> Operadores = new List<string>();
@@ -73,13 +75,14 @@ namespace Gestão_de_Ocorrencias
             cnn.Close(); // Fecha a mensagem 
         }
 
-        public int Id { get; set; }
+        
 
-        private string querry = (@"UPDATE Gestao SET Data=@dtmData, Hora=@hHora, Titulo=@txtTitulo, Descricao=@txtDescricao, Gravidade=@cboGravidade, Operador=@cboOperador, Turno=@txtTurno, where ID = ");
-
+        
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
+            string querry = (@"UPDATE Gestao SET Data=@dtmData, Hora=@hHora, Titulo=@txtTitulo, Descricao=@txtDescricao, Gravidade=@cboGravidade, Operador=@cboOperador, Turno=@txtTurno  where ID = " + idnow);
+
             using (SqlConnection connection = new SqlConnection(ConnetionString))
             {
                 TimeSpan dt = DateTime.Parse(hHora.Value.ToString()).TimeOfDay;
@@ -87,13 +90,13 @@ namespace Gestão_de_Ocorrencias
                 using (SqlCommand sqlCommand = new SqlCommand(querry, connection))
                 {
                     sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Date).Value = dtmData.Value;
-                    sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.DateTime).Value = dt.ToString();
-                    sqlCommand.Parameters.AddWithValue("@txtTitulo", SqlDbType.Text).Value = txtTitulo;
+                    sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.Text).Value = dt.ToString();
+                    sqlCommand.Parameters.AddWithValue("@txtTitulo", SqlDbType.Text).Value = txtTitulo.Text;
                     sqlCommand.Parameters.AddWithValue("@txtDescricao", SqlDbType.Text).Value = txtDescricao.Text;
                     sqlCommand.Parameters.AddWithValue("@cboGravidade", SqlDbType.Text).Value = cboGravidade.Text;
                     sqlCommand.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = cboOperador.Text;
                     sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text;
-                    sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.Int).Value = Id;
+
 
                     try
                     {
@@ -108,6 +111,7 @@ namespace Gestão_de_Ocorrencias
                 }
                 connection.Close();
             }
+            this.Close();
         }
     }
 }

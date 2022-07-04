@@ -168,7 +168,7 @@ namespace Gestão_de_Ocorrencias
                 mod.Data = DateTime.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[0].ToString());
             }
             mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
-            CheckNull = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1].GetType().ToString();
+            CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1].GetType().ToString();
             if (CheckNull != "System.DBNull")
             {
                 // If not null, gets vallue of all said Entries
