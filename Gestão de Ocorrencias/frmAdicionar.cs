@@ -14,7 +14,7 @@ namespace Gestão_de_Ocorrencias
             InitializeComponent();
         }
         int currentid;
-        private readonly string connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes";
+        private readonly string connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
         public string ConnetionString { get; set; }
         public string tipo { get; set; }
         private void adcAdicionar_Load(object sender, EventArgs e)

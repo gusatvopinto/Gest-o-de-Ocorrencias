@@ -39,7 +39,7 @@ namespace Gestão_de_Ocorrencias
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes";
+            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
             cmd.ConnectionString = connetionString;
 
             try
@@ -84,7 +84,7 @@ namespace Gestão_de_Ocorrencias
                 {
                     // Inicia uma conexao
                     string connetionString = null;
-                    connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes";
+                    connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
                     SqlConnection cnn = new SqlConnection(connetionString);
                     int rowsaffected = 0;
                     try
@@ -99,7 +99,7 @@ namespace Gestão_de_Ocorrencias
                     }
 
                     // Insere os dados dentro do Sql
-                    SqlCommand CmdCab = new SqlCommand("UPDATE Gestao SET ID=1 WHERE intCodigo = " + dataRow[0].ToString(), cnn);
+                    SqlCommand CmdCab = new SqlCommand("Delete From Gestao WHERE ID = " + ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString(), cnn);
 
                     try
                     {
@@ -160,8 +160,16 @@ namespace Gestão_de_Ocorrencias
         private void sfDataGrid1_SelectionChanged(object sender, Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventArgs e)
         {
             mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
-            string CheckNull = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1].GetType().ToString();
-            if (CheckNull != "Systyem.DBNull")
+            string CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[0].GetType().ToString();
+            if (CheckNull != "System.DBNull")
+            {
+                // If not null, gets vallue of all said Entries
+                // And so it goes on down to the last condition
+                mod.Data = DateTime.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[0].ToString());
+            }
+            mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
+            CheckNull = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1].GetType().ToString();
+            if (CheckNull != "System.DBNull")
             {
                 // If not null, gets vallue of all said Entries
                 // And so it goes on down to the last condition
@@ -170,8 +178,9 @@ namespace Gestão_de_Ocorrencias
 
             mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[2].GetType().ToString();
-            if (CheckNull != "Systyem.DBNull")
+            if (CheckNull != "System.DBNull")
             {
+                
                 // If not null, gets vallue of all said Entries
                 // And so it goes on down to the last condition
                 mod.Hora = DateTime.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[2].ToString());
@@ -179,7 +188,7 @@ namespace Gestão_de_Ocorrencias
 
             mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[3].GetType().ToString();
-            if (CheckNull != "Systyem.DBNull")
+            if (CheckNull != "System.DBNull")
             {
                 // If not null, gets vallue of all said Entries
                 // And so it goes on down to the last condition
@@ -188,7 +197,7 @@ namespace Gestão_de_Ocorrencias
 
             mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[4].GetType().ToString();
-            if (CheckNull != "Systyem.DBNull")
+            if (CheckNull != "System.DBNull")
             {
                 // If not null, gets vallue of all said Entries
                 // And so it goes on down to the last condition
@@ -197,16 +206,16 @@ namespace Gestão_de_Ocorrencias
 
             mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[5].GetType().ToString();
-            if (CheckNull != "Systyem.DBNull")
+            if (CheckNull != "System.DBNull")
             {
                 // If not null, gets vallue of all said Entries
                 // And so it goes on down to the last condition
                 mod.Operador = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[5];
             }
 
-
+            mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[6].GetType().ToString();
-            if (CheckNull != "Systyem.DBNull")
+            if (CheckNull != "System.DBNull")
             {
                 // If not null, gets vallue of all said Entries
                 // And so it goes on down to the last condition

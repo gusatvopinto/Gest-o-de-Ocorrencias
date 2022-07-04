@@ -43,13 +43,21 @@ namespace Gestão_de_Ocorrencias
             cboGravidade.DataSource = USStates;
             cboOperador.DataSource = Operadores;
             dtmData.Culture = CultureInfo.CurrentCulture;
+
+            hHora.Text = Hora.ToString();
+            dtmData.Text = Data.ToString();
+            txtTitulo.Text = Titulo.ToString();
+            txtDescricao.Text = Descricao.ToString();
+            cboGravidade.Text = Gravidade.ToString();
+            cboOperador.Text = Operador.ToString();
+            txtTurno.Text = Turno.ToString();
         }
 
         void Carrega()
         {
             string connetionString;
             SqlConnection cnn;
-            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=testes";
+            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
             cnn = new SqlConnection(connetionString);
 
             try
@@ -67,21 +75,17 @@ namespace Gestão_de_Ocorrencias
 
         public int Id { get; set; }
 
-        string querry = (@"UPDATE Gestao SET Data=@dtmData, Hora=@hHora, Titulo=@txtTitulo, Descricao=@txtDescricao, Gravidade=@cboGravidade, Operador=@cboOperador, Turno=@txtTurno, where ID = ");
+        private string querry = (@"UPDATE Gestao SET Data=@dtmData, Hora=@hHora, Titulo=@txtTitulo, Descricao=@txtDescricao, Gravidade=@cboGravidade, Operador=@cboOperador, Turno=@txtTurno, where ID = ");
 
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            DataSet ds = new DataSet(querry);
-            ds.Clear();
             using (SqlConnection connection = new SqlConnection(ConnetionString))
             {
                 TimeSpan dt = DateTime.Parse(hHora.Value.ToString()).TimeOfDay;
                 connection.Open();
                 using (SqlCommand sqlCommand = new SqlCommand(querry, connection))
                 {
-                    querry = (@"UPDATE Gestao SET Data=@dtmData, Hora=@hHora, Titulo=@txtTitulo, Descricao=@txtDescricao, Gravidade=@cboGravidade, Operador=@cboOperador, Turno=@txtTurno, where ID = ");
-                    connection.Open();
                     sqlCommand.Parameters.AddWithValue("@dtmData", SqlDbType.Date).Value = dtmData.Value;
                     sqlCommand.Parameters.AddWithValue("@hHora", SqlDbType.DateTime).Value = dt.ToString();
                     sqlCommand.Parameters.AddWithValue("@txtTitulo", SqlDbType.Text).Value = txtTitulo;
@@ -90,21 +94,19 @@ namespace Gestão_de_Ocorrencias
                     sqlCommand.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = cboOperador.Text;
                     sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text;
                     sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.Int).Value = Id;
-                    sqlCommand.ExecuteNonQuery();
-                    connection.Close();
-                }
 
-                SqlCommand sql = new SqlCommand();
-                try
-                {
-                    sql.ExecuteNonQuery();
-                    MessageBox.Show("Informação Adicionada", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        sqlCommand.ExecuteNonQuery();
+                        MessageBox.Show("Informação Adicionada", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("A Informação Não Foi Adicionada", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
-                catch (Exception)
-                {
-                    MessageBox.Show("A Informação Não Foi Adicionada", "Mensagem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                connection.Close();
             }
         }
     }
