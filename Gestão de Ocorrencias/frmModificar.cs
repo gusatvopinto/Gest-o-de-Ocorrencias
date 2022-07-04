@@ -21,12 +21,12 @@ namespace Gestão_de_Ocorrencias
 
         public DateTime Data { get; set; }
         public DateTime Hora { get; set; }
-        public string  Titulo {get; set;}
+        public string Titulo { get; set; }
         public string Descricao { get; set; }
-        public string Gravidade { get; set;}
+        public string Gravidade { get; set; }
         public string Operador { get; set; }
         public string Turno { get; set; }
-        public  int ID { get; set; }
+        public int ID { get; set; }
         string idnow;
 
         private void adcModificar_Load(object sender, EventArgs e)
@@ -57,10 +57,8 @@ namespace Gestão_de_Ocorrencias
 
         void Carrega()
         {
-            string connetionString;
             SqlConnection cnn;
-            connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
-            cnn = new SqlConnection(connetionString);
+            cnn = new SqlConnection(ConnetionString);
 
             try
             {
@@ -75,9 +73,9 @@ namespace Gestão_de_Ocorrencias
             cnn.Close(); // Fecha a mensagem 
         }
 
-        
 
-        
+
+
 
         private void btnGravar_Click(object sender, EventArgs e)
         {

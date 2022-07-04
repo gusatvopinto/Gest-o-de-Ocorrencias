@@ -32,6 +32,7 @@ namespace Gestão_de_Ocorrencias
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             adcAdicionar adc = new adcAdicionar();
+            adc.ConnetionString = connetionString;
             adc.ShowDialog();
             update();
             Refresh();

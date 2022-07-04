@@ -14,7 +14,6 @@ namespace Gestão_de_Ocorrencias
             InitializeComponent();
         }
         int currentid;
-        private readonly string connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
         public string ConnetionString { get; set; }
         public string tipo { get; set; }
         private void adcAdicionar_Load(object sender, EventArgs e)
@@ -33,7 +32,7 @@ namespace Gestão_de_Ocorrencias
             cboOperador.DataSource = Operadores;
             dtmData.Culture = CultureInfo.CurrentCulture;
 
-            SqlConnection connection = new SqlConnection(connetionString);
+            SqlConnection connection = new SqlConnection(ConnetionString);
             connection.Open();
             string comand = "SELECT MAX (ID) FROM Gestao";
             SqlCommand command = new SqlCommand(comand, connection);
@@ -46,7 +45,7 @@ namespace Gestão_de_Ocorrencias
         public int Id { get; set; }
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            using (SqlConnection connection = new SqlConnection(connetionString))
+            using (SqlConnection connection = new SqlConnection(ConnetionString))
             {
                 TimeSpan dt = DateTime.Parse(hHora.Value.ToString()).TimeOfDay;
                 connection.Open();
