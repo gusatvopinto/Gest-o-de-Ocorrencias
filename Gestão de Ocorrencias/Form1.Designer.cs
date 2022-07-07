@@ -137,7 +137,7 @@ namespace Gestão_de_Ocorrencias
             this.sfButton2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.sfButton2.Name = "sfButton2";
             this.sfButton2.Size = new System.Drawing.Size(144, 66);
-            this.sfButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.sfButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
             this.sfButton2.TabIndex = 5;
             this.sfButton2.Text = "Tabelas Adicionais";
             this.sfButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

@@ -72,6 +72,7 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Operador";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // tabPage3
             // 
@@ -81,6 +82,7 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Gravidade";
             this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
             // btnAdicionar
             // 
@@ -99,7 +101,6 @@
             this.btnAdicionar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
-            this.btnAdicionar.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.btnAdicionar_ControlAdded);
             // 
             // btnModificar
             // 
