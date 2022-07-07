@@ -35,6 +35,7 @@ namespace Gestão_de_Ocorrencias
             this.btnModificar = new Syncfusion.WinForms.Controls.SfButton();
             this.btnRemover = new Syncfusion.WinForms.Controls.SfButton();
             this.sfButton1 = new Syncfusion.WinForms.Controls.SfButton();
+            this.sfButton2 = new Syncfusion.WinForms.Controls.SfButton();
             ((System.ComponentModel.ISupportInitialize)(this.sfDataGrid1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,12 +126,31 @@ namespace Gestão_de_Ocorrencias
             this.sfButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.sfButton1.Click += new System.EventHandler(this.sfButton1_Click);
             // 
+            // sfButton2
+            // 
+            this.sfButton2.AccessibleName = "Button";
+            this.sfButton2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sfButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
+            this.sfButton2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.sfButton2.ImageSize = new System.Drawing.Size(32, 32);
+            this.sfButton2.Location = new System.Drawing.Point(989, 316);
+            this.sfButton2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.sfButton2.Name = "sfButton2";
+            this.sfButton2.Size = new System.Drawing.Size(144, 66);
+            this.sfButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+            this.sfButton2.TabIndex = 5;
+            this.sfButton2.Text = "Tabelas Adicionais";
+            this.sfButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.sfButton2.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
+            this.sfButton2.Click += new System.EventHandler(this.sfButton2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1141, 626);
+            this.Controls.Add(this.sfButton2);
             this.Controls.Add(this.sfButton1);
             this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnModificar);
@@ -154,6 +174,7 @@ namespace Gestão_de_Ocorrencias
         private Syncfusion.WinForms.Controls.SfButton btnModificar;
         private Syncfusion.WinForms.Controls.SfButton btnRemover;
         private Syncfusion.WinForms.Controls.SfButton sfButton1;
+        private Syncfusion.WinForms.Controls.SfButton sfButton2;
     }
 }
 

@@ -27,18 +27,12 @@ namespace Gestão_de_Ocorrencias
         public int ID { get; set; }
 
 
-        SqlConnection sqlConnection = new SqlConnection(connectionString);
+
         SqlConnection cmd = new SqlConnection();
         static string connectionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
+        SqlConnection sqlConnection = new SqlConnection(connectionString);
 
-        private void btnAdicionar_Click(object sender, EventArgs e)
-        {
-            adcAdicionar adc = new adcAdicionar();
-            adc.ConnetionString = connectionString;
-            adc.ShowDialog();
-            update();
-            Refresh();
-        }
+       
         private void Form1_Load(object sender, EventArgs e)
         {
             btnModificar.Enabled = false;
@@ -56,6 +50,14 @@ namespace Gestão_de_Ocorrencias
                 return; // Retorna o valor
             }
             update();
+        }
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            adcAdicionar adc = new adcAdicionar();
+            adc.ConnetionString = connectionString;
+            adc.ShowDialog();
+            update();
+            Refresh();
         }
 
         void update()
@@ -92,12 +94,10 @@ namespace Gestão_de_Ocorrencias
                     string connetionString = null;
                     connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
                     SqlConnection cnn = new SqlConnection(connetionString);
-                    int rowsaffected = 0;
                     try
                     {
                         cnn.Open(); // Abre a base de dados
                     }
-
                     catch (Exception ex)
                     {
                         MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -109,7 +109,7 @@ namespace Gestão_de_Ocorrencias
 
                     try
                     {
-                        rowsaffected = CmdCab.ExecuteNonQuery(); // Executando o comando
+                        CmdCab.ExecuteNonQuery(); // Executando o comando
                     }
 
                     catch (Exception ex)
@@ -141,7 +141,7 @@ namespace Gestão_de_Ocorrencias
                 Filter = "Excel 97 to 2003 Files(*.xls)|*.xls|Excel 2007 to 2010 Files(*.xlsx)|*.xlsx|Excel 2013 File(*.xlsx)|*.xlsx"
             };
 
-            if (saveFilterDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (saveFilterDialog.ShowDialog() == DialogResult.OK)
             {
                 using (Stream stream = saveFilterDialog.OpenFile())
                 {
@@ -170,6 +170,7 @@ namespace Gestão_de_Ocorrencias
         {
             btnModificar.Enabled = true;
             btnRemover.Enabled = true;
+
             mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
             string CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[0].GetType().ToString();
             if (CheckNull != "System.DBNull")
@@ -178,6 +179,7 @@ namespace Gestão_de_Ocorrencias
                 // And so it goes on down to the last condition
                 mod.Data = DateTime.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[0].ToString());
             }
+
 
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1].GetType().ToString();
             if (CheckNull != "System.DBNull")
@@ -232,6 +234,17 @@ namespace Gestão_de_Ocorrencias
                 // And so it goes on down to the last condition
                 mod.Turno = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[6];
             }
+        }
+        public string ConnetionString { get; set; }
+
+        private void sfButton2_Click(object sender, EventArgs e)
+        {
+            frmTabelasAdicionais frm = new frmTabelasAdicionais();
+            frm.ConnetionString = connectionString;
+            frm.ShowDialog();
+            update();
+            Refresh();
+
         }
     }
 }

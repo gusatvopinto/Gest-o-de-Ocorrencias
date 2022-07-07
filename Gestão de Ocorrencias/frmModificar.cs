@@ -15,7 +15,6 @@ namespace Gestão_de_Ocorrencias
             InitializeComponent();
         }
         public string ConnetionString { get; set; }
-        public string tipo { get; set; }
 
         public Int32 codigoreg;
 
@@ -55,24 +54,6 @@ namespace Gestão_de_Ocorrencias
             txtTurno.Text = Turno.ToString();
         }
 
-        void Carrega()
-        {
-            SqlConnection cnn;
-            cnn = new SqlConnection(ConnetionString);
-
-            try
-            {
-                cnn.Open(); // Abre a conexão
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Retorna o valor
-            }
-            MessageBox.Show("Connection Open: !", "Conexão", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            cnn.Close(); // Fecha a mensagem 
-        }
-
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string querry = (@"UPDATE Gestao SET Data=@dtmData, Hora=@hHora, Titulo=@txtTitulo, Descricao=@txtDescricao, Gravidade=@cboGravidade, Operador=@cboOperador, Turno=@txtTurno  where ID = " + idnow);
@@ -90,7 +71,6 @@ namespace Gestão_de_Ocorrencias
                     sqlCommand.Parameters.AddWithValue("@cboGravidade", SqlDbType.Text).Value = cboGravidade.Text;
                     sqlCommand.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = cboOperador.Text;
                     sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text;
-
 
                     try
                     {
