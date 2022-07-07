@@ -27,18 +27,12 @@ namespace Gestão_de_Ocorrencias
         public int ID { get; set; }
 
 
-        SqlConnection sqlConnection = new SqlConnection(connectionString);
+
         SqlConnection cmd = new SqlConnection();
         static string connectionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
+        SqlConnection sqlConnection = new SqlConnection(connectionString);
 
-        private void btnAdicionar_Click(object sender, EventArgs e)
-        {
-            adcAdicionar adc = new adcAdicionar();
-            adc.ConnetionString = connectionString;
-            adc.ShowDialog();
-            update();
-            Refresh();
-        }
+        
         private void Form1_Load(object sender, EventArgs e)
         {
             btnModificar.Enabled = false;
@@ -69,13 +63,20 @@ namespace Gestão_de_Ocorrencias
             da.Fill(ds, "Gestao");
             sfDataGrid1.DataSource = ds.Tables["Gestao"];
         }
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            adcAdicionar adc = new adcAdicionar();
+            adc.ConnetionString = connectionString;
+            adc.ShowDialog();
+            update();
+            Refresh();
+        }
         private void btnModificar_Click(object sender, EventArgs e)
         {
             mod.ConnetionString = connectionString;
             mod.ShowDialog();
             update();
             Refresh();
-
             btnRemover.Enabled = false;
             btnModificar.Enabled = false;
         }
@@ -92,7 +93,6 @@ namespace Gestão_de_Ocorrencias
                     string connetionString = null;
                     connetionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
                     SqlConnection cnn = new SqlConnection(connetionString);
-                    int rowsaffected = 0;
                     try
                     {
                         cnn.Open(); // Abre a base de dados
@@ -109,7 +109,7 @@ namespace Gestão_de_Ocorrencias
 
                     try
                     {
-                        rowsaffected = CmdCab.ExecuteNonQuery(); // Executando o comando
+                        CmdCab.ExecuteNonQuery(); // Executando o comando
                     }
 
                     catch (Exception ex)
