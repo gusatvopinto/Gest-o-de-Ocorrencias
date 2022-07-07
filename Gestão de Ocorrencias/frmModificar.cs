@@ -15,8 +15,6 @@ namespace Gestão_de_Ocorrencias
             InitializeComponent();
         }
         public string ConnetionString { get; set; }
-        public string tipo { get; set; }
-
         public Int32 codigoreg;
 
         public DateTime Data { get; set; }
@@ -53,24 +51,6 @@ namespace Gestão_de_Ocorrencias
             cboGravidade.Text = Gravidade.ToString();
             cboOperador.Text = Operador.ToString();
             txtTurno.Text = Turno.ToString();
-        }
-
-        void Carrega()
-        {
-            SqlConnection cnn;
-            cnn = new SqlConnection(ConnetionString);
-
-            try
-            {
-                cnn.Open(); // Abre a conexão
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Retorna o valor
-            }
-            MessageBox.Show("Connection Open: !", "Conexão", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            cnn.Close(); // Fecha a mensagem 
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
