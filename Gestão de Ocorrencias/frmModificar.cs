@@ -73,10 +73,6 @@ namespace Gestão_de_Ocorrencias
             cnn.Close(); // Fecha a mensagem 
         }
 
-
-
-
-
         private void btnGravar_Click(object sender, EventArgs e)
         {
             string querry = (@"UPDATE Gestao SET Data=@dtmData, Hora=@hHora, Titulo=@txtTitulo, Descricao=@txtDescricao, Gravidade=@cboGravidade, Operador=@cboOperador, Turno=@txtTurno  where ID = " + idnow);

@@ -60,7 +60,7 @@ namespace Gestão_de_Ocorrencias
                     sqlCommand.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = txtTurno.Text;
                     sqlCommand.Parameters.AddWithValue("@ID", SqlDbType.Int).Value = currentid;
 
-                    string sql = sqlCommand.ToString();
+
                     try
                     {
                         sqlCommand.ExecuteNonQuery();

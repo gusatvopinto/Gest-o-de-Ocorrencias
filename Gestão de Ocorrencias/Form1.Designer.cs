@@ -45,8 +45,9 @@ namespace Gestão_de_Ocorrencias
             this.sfDataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.sfDataGrid1.Location = new System.Drawing.Point(12, 12);
+            this.sfDataGrid1.Location = new System.Drawing.Point(12, 46);
             this.sfDataGrid1.Name = "sfDataGrid1";
+            this.sfDataGrid1.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
             this.sfDataGrid1.Size = new System.Drawing.Size(971, 602);
             this.sfDataGrid1.TabIndex = 0;
             this.sfDataGrid1.Text = "sfDataGrid1";
@@ -113,7 +114,7 @@ namespace Gestão_de_Ocorrencias
             this.sfButton1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.sfButton1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.sfButton1.ImageSize = new System.Drawing.Size(32, 32);
-            this.sfButton1.Location = new System.Drawing.Point(989, 12);
+            this.sfButton1.Location = new System.Drawing.Point(989, 46);
             this.sfButton1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.sfButton1.Name = "sfButton1";
             this.sfButton1.Size = new System.Drawing.Size(144, 66);
