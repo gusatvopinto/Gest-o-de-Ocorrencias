@@ -31,13 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTabelasAdicionais));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listView1 = new System.Windows.Forms.ListView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.listView2 = new System.Windows.Forms.ListView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.listView3 = new System.Windows.Forms.ListView();
             this.btnAdicionar = new Syncfusion.WinForms.Controls.SfButton();
-            this.btnModificar = new Syncfusion.WinForms.Controls.SfButton();
-            this.btnRemover = new Syncfusion.WinForms.Controls.SfButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -51,9 +54,12 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(694, 252);
             this.tabControl1.TabIndex = 0;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
+            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listView1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -63,8 +69,18 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(6, 6);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(121, 97);
+            this.listView1.TabIndex = 0;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listView2);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -74,8 +90,18 @@
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // listView2
+            // 
+            this.listView2.HideSelection = false;
+            this.listView2.Location = new System.Drawing.Point(6, 6);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(125, 98);
+            this.listView2.TabIndex = 0;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.listView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(686, 223);
@@ -84,6 +110,15 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // listView3
+            // 
+            this.listView3.HideSelection = false;
+            this.listView3.Location = new System.Drawing.Point(3, 3);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(132, 95);
+            this.listView3.TabIndex = 0;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            // 
             // btnAdicionar
             // 
             this.btnAdicionar.AccessibleName = "Button";
@@ -91,7 +126,7 @@
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAdicionar.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnAdicionar.Location = new System.Drawing.Point(159, 342);
+            this.btnAdicionar.Location = new System.Drawing.Point(301, 333);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.btnAdicionar.Name = "btnAdicionar";
             this.btnAdicionar.Size = new System.Drawing.Size(144, 66);
@@ -100,64 +135,22 @@
             this.btnAdicionar.Text = " Adicionar";
             this.btnAdicionar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAdicionar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            this.btnAdicionar.Click += new System.EventHandler(this.btnAdicionar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.AccessibleName = "Button";
-            this.btnModificar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnModificar.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnModificar.Location = new System.Drawing.Point(309, 342);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(144, 66);
-            this.btnModificar.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
-            this.btnModificar.TabIndex = 3;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            // 
-            // btnRemover
-            // 
-            this.btnRemover.AccessibleName = "Button";
-            this.btnRemover.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRemover.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
-            this.btnRemover.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRemover.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnRemover.Location = new System.Drawing.Point(453, 342);
-            this.btnRemover.Margin = new System.Windows.Forms.Padding(3, 3, 10, 3);
-            this.btnRemover.Name = "btnRemover";
-            this.btnRemover.Size = new System.Drawing.Size(144, 66);
-            this.btnRemover.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-            this.btnRemover.TabIndex = 4;
-            this.btnRemover.Text = "Remover";
-            this.btnRemover.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(217, 292);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(358, 20);
-            this.textBox1.TabIndex = 5;
             // 
             // frmTabelasAdicionais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 451);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnRemover);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.tabControl1);
             this.Name = "frmTabelasAdicionais";
             this.Text = "frmTabelasAdicionais";
+            this.Load += new System.EventHandler(this.frmTabelasAdicionais_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -166,10 +159,11 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private Syncfusion.WinForms.Controls.SfButton btnAdicionar;
-        private Syncfusion.WinForms.Controls.SfButton btnModificar;
-        private Syncfusion.WinForms.Controls.SfButton btnRemover;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TextBox textBox1;
+        private Syncfusion.WinForms.Controls.SfButton btnAdicionar;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView listView3;
     }
 }

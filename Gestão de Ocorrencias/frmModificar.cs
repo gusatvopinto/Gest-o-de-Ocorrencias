@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -30,19 +31,30 @@ namespace Gestão_de_Ocorrencias
 
         private void adcModificar_Load(object sender, EventArgs e)
         {
-            // Adiciona a USStates a uma nova lista 
-            List<string> USStates = new List<string>();
-            USStates.Add("Alta");
-            USStates.Add("Média");
-            USStates.Add("Baixa");
+            SqlConnection connection = new SqlConnection();
+            SqlCommand command = new SqlCommand();
+
+            List<int> Scores = new List<int>() { 97, 92, 81, 60 };
+
+            // Create the query.
+            IEnumerable<int> queryHighScores =
+                from score in Scores
+                where score > 80
+                select score;
+
+            // Execute the query.
+            foreach (int i in queryHighScores)
+            {
+                Console.Write(i + " ");
+            }
+
+           
             idnow = ID.ToString();
 
             // Adiciona um novo operador a lista
             List<string> Operadores = new List<string>();
             Operadores.Add("Elisio Pereira");
 
-            cboGravidade.DataSource = USStates;
-            cboOperador.DataSource = Operadores;
             dtmData.Culture = CultureInfo.CurrentCulture;
 
             hHora.Text = Hora.ToString();
