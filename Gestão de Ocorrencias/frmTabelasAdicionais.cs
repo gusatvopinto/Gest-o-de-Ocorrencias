@@ -42,18 +42,20 @@ namespace Gestão_de_Ocorrencias
 
         void updatepage()
         {
-            DataSet dset = new DataSet();
-            SqlDataAdapter adapter = new SqlDataAdapter();
+            DataSet dset = new DataSet(); //Cria um dateset
+            SqlDataAdapter adapter = new SqlDataAdapter(); //Cria um adaptador
             querry = "SELECT * FROM turno";
             adapter = new SqlDataAdapter(querry, connectionString);
             adapter.Fill(dset, "a");
             dataGridView1.DataSource = dset.Tables["a"];
+
             dset = new DataSet();
             SqlDataAdapter adapter2 = new SqlDataAdapter();
             querr = "SELECT * FROM operador";
             adapter2 = new SqlDataAdapter(querr, connectionString);
             adapter2.Fill(dset, "b");
             dataGridView2.DataSource = dset.Tables["b"];
+
             dset = new DataSet();
             SqlDataAdapter adapter3 = new SqlDataAdapter();
             con = "SELECT * FROM gravidade";
@@ -69,44 +71,41 @@ namespace Gestão_de_Ocorrencias
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
-            if (connection.State == System.Data.ConnectionState.Closed)
+            if (connection.State == System.Data.ConnectionState.Closed) // Se a conexão estiver aberta
             {
                 try
                 {
-                    connection.Open();
+                    connection.Open(); // Abre-a
                 }
-                catch (Exception ex)
+                catch (Exception ex) // Se não
                 {
-                    MessageBox.Show("Não foi possivel connectar á base de dados\n" + ex.Message, "Error",
+                    MessageBox.Show("Não foi possivel connectar á base de dados\n" + ex.Message, "Error", // Aparece uma mensagem de erro
                                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
 
-            if (tabControl1.SelectedTab == tabPage1)
+            if (tabControl1.SelectedTab == tabPage1) // Se a tabPage1 for selecionada 
             {
-                string comand = "SELECT MAX (ID) FROM turno";
+                string comand = "SELECT MAX (ID) FROM turno"; // Seleciona o ID máximo existente 
                 SqlCommand command = new SqlCommand(comand, connection);
                 int maxid = (int)command.ExecuteScalar();
-                currentid = maxid + 1;
-
+                currentid = maxid + 1; // e adiciona mais 1 ao ID
             }
 
-            else if (tabControl1.SelectedTab == tabPage2)
+            else if (tabControl1.SelectedTab == tabPage2) // Se a tabPage2 for selecionada
             {
-                string conand = "SELECT MAX (ID) FROM operador";
+                string conand = "SELECT MAX (ID) FROM operador"; // Seleciona o ID máximo existente
                 SqlCommand command = new SqlCommand(conand, connection);
                 int maxid = (int)command.ExecuteScalar();
-                currentid = maxid + 1;
-
+                currentid = maxid + 1; // e adiciona mais 1 ao ID 
             }
 
-            else if (tabControl1.SelectedTab == tabPage3)
+            else if (tabControl1.SelectedTab == tabPage3) // Se a tabPage3 for selecionada
             {
-                string Comand = "SELECT MAX (ID) FROM gravidade";
+                string Comand = "SELECT MAX (ID) FROM gravidade"; // Seleciona o ID máximo existente
                 SqlCommand command = new SqlCommand(Comand, connection);
                 int maxid = (int)command.ExecuteScalar();
-                currentid = maxid + 1;
-
+                currentid = maxid + 1; // e adiciona mais 1 ao ID
             }
 
             if (tabControl1.SelectedTab == tabPage1)

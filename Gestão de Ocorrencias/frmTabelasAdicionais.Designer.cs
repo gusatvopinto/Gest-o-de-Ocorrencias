@@ -53,10 +53,10 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(25, 12);
+            this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(694, 252);
+            this.tabControl1.Size = new System.Drawing.Size(779, 263);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -66,7 +66,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(686, 223);
+            this.tabPage1.Size = new System.Drawing.Size(771, 234);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Turno";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -76,7 +76,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(3, 3);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(677, 217);
+            this.dataGridView1.Size = new System.Drawing.Size(765, 228);
             this.dataGridView1.TabIndex = 0;
             // 
             // tabPage2
@@ -85,7 +85,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(686, 223);
+            this.tabPage2.Size = new System.Drawing.Size(771, 234);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Operador";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -95,7 +95,7 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Location = new System.Drawing.Point(3, 3);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(677, 211);
+            this.dataGridView2.Size = new System.Drawing.Size(765, 228);
             this.dataGridView2.TabIndex = 0;
             // 
             // tabPage3
@@ -103,7 +103,7 @@
             this.tabPage3.Controls.Add(this.dataGridView3);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(686, 223);
+            this.tabPage3.Size = new System.Drawing.Size(771, 234);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Gravidade";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -113,7 +113,7 @@
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Location = new System.Drawing.Point(3, 3);
             this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(680, 217);
+            this.dataGridView3.Size = new System.Drawing.Size(765, 228);
             this.dataGridView3.TabIndex = 0;
             // 
             // btnAdicionar
@@ -123,10 +123,10 @@
             this.btnAdicionar.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.btnAdicionar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnAdicionar.ImageSize = new System.Drawing.Size(32, 32);
-            this.btnAdicionar.Location = new System.Drawing.Point(301, 333);
+            this.btnAdicionar.Location = new System.Drawing.Point(286, 333);
             this.btnAdicionar.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.btnAdicionar.Name = "btnAdicionar";
-            this.btnAdicionar.Size = new System.Drawing.Size(144, 66);
+            this.btnAdicionar.Size = new System.Drawing.Size(173, 66);
             this.btnAdicionar.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
             this.btnAdicionar.TabIndex = 2;
             this.btnAdicionar.Text = " Adicionar";
@@ -136,16 +136,16 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(301, 283);
+            this.maskedTextBox1.Location = new System.Drawing.Point(286, 300);
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(139, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(173, 20);
             this.maskedTextBox1.TabIndex = 4;
             // 
             // frmTabelasAdicionais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 451);
+            this.ClientSize = new System.Drawing.Size(784, 413);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.tabControl1);

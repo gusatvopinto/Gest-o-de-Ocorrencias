@@ -49,7 +49,7 @@ namespace Gestão_de_Ocorrencias
             this.sfDataGrid1.Location = new System.Drawing.Point(12, 46);
             this.sfDataGrid1.Name = "sfDataGrid1";
             this.sfDataGrid1.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
-            this.sfDataGrid1.Size = new System.Drawing.Size(971, 602);
+            this.sfDataGrid1.Size = new System.Drawing.Size(971, 568);
             this.sfDataGrid1.TabIndex = 0;
             this.sfDataGrid1.Text = "sfDataGrid1";
             this.sfDataGrid1.SelectionChanged += new Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventHandler(this.sfDataGrid1_SelectionChanged);
@@ -133,11 +133,11 @@ namespace Gestão_de_Ocorrencias
             this.sfButton2.Font = new System.Drawing.Font("Segoe UI Semibold", 9F);
             this.sfButton2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.sfButton2.ImageSize = new System.Drawing.Size(32, 32);
-            this.sfButton2.Location = new System.Drawing.Point(989, 316);
+            this.sfButton2.Location = new System.Drawing.Point(989, 324);
             this.sfButton2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.sfButton2.Name = "sfButton2";
             this.sfButton2.Size = new System.Drawing.Size(144, 66);
-            this.sfButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+            this.sfButton2.Style.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
             this.sfButton2.TabIndex = 5;
             this.sfButton2.Text = "Tabelas Adicionais";
             this.sfButton2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
