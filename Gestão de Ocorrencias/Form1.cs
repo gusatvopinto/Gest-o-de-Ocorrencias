@@ -26,19 +26,15 @@ namespace Gestão_de_Ocorrencias
         public string Turno { get; set; }
         public int ID { get; set; }
 
-
-
         SqlConnection cmd = new SqlConnection();
         static string connectionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
         SqlConnection sqlConnection = new SqlConnection(connectionString);
-
        
         private void Form1_Load(object sender, EventArgs e)
         {
             btnModificar.Enabled = false;
             btnRemover.Enabled = false;
             cmd.ConnectionString = connectionString;
-
             try
             {
                 cmd.Open(); // Abre a base de dados
@@ -59,7 +55,6 @@ namespace Gestão_de_Ocorrencias
             update();
             Refresh();
         }
-
         void update()
         {
             // Inicia o dataset
@@ -119,7 +114,6 @@ namespace Gestão_de_Ocorrencias
                     }
                     cnn.Close(); // Fecha a conexão com a base de dados
                     MessageBox.Show("Ocorrência removida com sucesso!", "Ocorrência", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     update();
                 }
             }
@@ -155,22 +149,20 @@ namespace Gestão_de_Ocorrencias
                         workBook.Version = ExcelVersion.Excel2013;
                     workBook.SaveAs(stream);
                 }
+
                 //Message box confirmation to view the created workbook.
                 if (MessageBox.Show(this.sfDataGrid1, "Quer guardar esta exportação?", "Exportação Excel", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-
                     //Launching the Excel file using the default Application.[MS Excel Or Free ExcelViewer]
                     System.Diagnostics.Process.Start(saveFilterDialog.FileName);
                 }
             }
         }
 
-
         private void sfDataGrid1_SelectionChanged(object sender, Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventArgs e)
         {
             btnModificar.Enabled = true;
             btnRemover.Enabled = true;
-
             mod.ID = int.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[7].ToString());
             string CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[0].GetType().ToString();
             if (CheckNull != "System.DBNull")
@@ -180,7 +172,6 @@ namespace Gestão_de_Ocorrencias
                 mod.Data = DateTime.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[0].ToString());
             }
 
-
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1].GetType().ToString();
             if (CheckNull != "System.DBNull")
             {
@@ -188,7 +179,6 @@ namespace Gestão_de_Ocorrencias
                 // And so it goes on down to the last condition
                 mod.Titulo = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[1];
             }
-
 
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[2].GetType().ToString();
             if (CheckNull != "System.DBNull")
@@ -199,7 +189,6 @@ namespace Gestão_de_Ocorrencias
                 mod.Hora = DateTime.Parse(((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[2].ToString());
             }
 
-
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[3].GetType().ToString();
             if (CheckNull != "System.DBNull")
             {
@@ -207,7 +196,6 @@ namespace Gestão_de_Ocorrencias
                 // And so it goes on down to the last condition
                 mod.Descricao = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[3];
             }
-
 
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[4].GetType().ToString();
             if (CheckNull != "System.DBNull")
@@ -217,7 +205,6 @@ namespace Gestão_de_Ocorrencias
                 mod.Gravidade = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[4];
             }
 
-
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[5].GetType().ToString();
             if (CheckNull != "System.DBNull")
             {
@@ -225,7 +212,6 @@ namespace Gestão_de_Ocorrencias
                 // And so it goes on down to the last condition
                 mod.Operador = (string)((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[5];
             }
-
 
             CheckNull = ((DataRowView)sfDataGrid1.SelectedItem).Row.ItemArray[6].GetType().ToString();
             if (CheckNull != "System.DBNull")
@@ -240,11 +226,9 @@ namespace Gestão_de_Ocorrencias
         private void sfButton2_Click(object sender, EventArgs e)
         {
             frmTabelasAdicionais frm = new frmTabelasAdicionais();
-            frm.ConnetionString = connectionString;
             frm.ShowDialog();
             update();
             Refresh();
-
         }
     }
 }
