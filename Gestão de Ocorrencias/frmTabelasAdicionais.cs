@@ -5,9 +5,9 @@ using System.Windows.Forms;
 
 namespace Gestão_de_Ocorrencias
 {
-    public partial class frmTabelasAdicionais : Form
+    public partial class TabelasAdicionais : Form
     {
-        public frmTabelasAdicionais()
+        public TabelasAdicionais()
         {
             InitializeComponent();
         }
@@ -15,10 +15,15 @@ namespace Gestão_de_Ocorrencias
         {
 
         }
+        Adicionar_Turno_ mod = new Adicionar_Turno_();
+        Adicionar_Operador_ Mod = new Adicionar_Operador_();
+        Adicionar_Gravidade_ Md = new Adicionar_Gravidade_();
+        Modificar_Turno_ md = new Modificar_Turno_();
+        Modificar_Operador_ modd = new Modificar_Operador_();
 
+        public string ConnetionString { get; set; }
         static string connectionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
         SqlConnection connection = new SqlConnection(connectionString);
-        int currentid;
 
         private void frmTabelasAdicionais_Load(object sender, EventArgs e)
         {
@@ -33,7 +38,7 @@ namespace Gestão_de_Ocorrencias
         void update()
         {
             DataSet ds = new DataSet();
-            string table = "SELECT Turno, [ID] FROM turno";
+            string table = "SELECT [ID], Turno FROM turno";
             // 2. inicia o SqlDataAdapte passando o comando SQL para selecionar codigo e nome
             // do produto e a conexão com o banco de dados
             SqlDataAdapter da = new SqlDataAdapter(table, connection);
@@ -71,92 +76,97 @@ namespace Gestão_de_Ocorrencias
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)
         {
-            if (connection.State == System.Data.ConnectionState.Closed) // Se a conexão estiver aberta
-            {
-                try
-                {
-                    connection.Open(); // Abre-a
-                }
-                catch (Exception ex) // Se não
-                {
-                    MessageBox.Show("Não foi possivel connectar á base de dados\n" + ex.Message, "Error", // Aparece uma mensagem de erro
-                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-
-            if (tabControl1.SelectedTab == tabPage1) // Se a tabPage1 for selecionada 
-            {
-                string comand = "SELECT MAX (ID) FROM turno"; // Seleciona o ID máximo existente 
-                SqlCommand command = new SqlCommand(comand, connection);
-                int maxid = (int)command.ExecuteScalar();
-                currentid = maxid + 1; // e adiciona mais 1 ao ID
-            }
-
-            else if (tabControl1.SelectedTab == tabPage2) // Se a tabPage2 for selecionada
-            {
-                string conand = "SELECT MAX (ID) FROM operador"; // Seleciona o ID máximo existente
-                SqlCommand command = new SqlCommand(conand, connection);
-                int maxid = (int)command.ExecuteScalar();
-                currentid = maxid + 1; // e adiciona mais 1 ao ID 
-            }
-
-            else if (tabControl1.SelectedTab == tabPage3) // Se a tabPage3 for selecionada
-            {
-                string Comand = "SELECT MAX (ID) FROM gravidade"; // Seleciona o ID máximo existente
-                SqlCommand command = new SqlCommand(Comand, connection);
-                int maxid = (int)command.ExecuteScalar();
-                currentid = maxid + 1; // e adiciona mais 1 ao ID
-            }
-
             if (tabControl1.SelectedTab == tabPage1)
             {
-                string querry = (@"INSERT INTO turno (Turno, ID) Values (@txtTurno, @ID)");
-                SqlCommand a = new SqlCommand(querry, connection);
-                a.Parameters.AddWithValue("@txtTurno", SqlDbType.Text).Value = maskedTextBox1.Text;
-                a.Parameters.AddWithValue("ID", SqlDbType.Int).Value = currentid;
-                try
-                {
-                    a.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                Adicionar_Turno_ com = new Adicionar_Turno_();
+                com.ShowDialog();
             }
 
-            else if (tabControl1.SelectedTab == tabPage2)
+            if (tabControl1.SelectedTab == tabPage2)
             {
-                string querr = (@"INSERT INTO operador (Operador, ID) Values (@cboOperador, @ID)");
-                SqlCommand b = new SqlCommand(querr, connection);
-                b.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = maskedTextBox1.Text;
-                b.Parameters.AddWithValue("ID", SqlDbType.Int).Value = currentid;
-                try
-                {
-                    b.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+                Adicionar_Operador_ Com = new Adicionar_Operador_();
+                Com.ShowDialog();
             }
 
-            else if (tabControl1.SelectedTab == tabPage3)
-            { 
-                string con = (@"INSERT INTO gravidade (Gravidade, ID) Values (@cboGravidade, @ID)");
-                SqlCommand c = new SqlCommand(con, connection);
-                c.Parameters.AddWithValue("@cboGravidade", SqlDbType.Text).Value = maskedTextBox1.Text;
-                c.Parameters.AddWithValue("ID", SqlDbType.Int).Value = currentid;
-                try
-                {
-                    c.ExecuteNonQuery();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
+            if (tabControl1.SelectedTab == tabPage3)
+            {
+                Adicionar_Gravidade_ Commm = new Adicionar_Gravidade_();
+                Commm.ShowDialog();
             }
             updatepage();
-            connection.Close();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab == tabPage1)
+            {
+                Modificar_Turno_ comm = new Modificar_Turno_();
+                comm.ID = (int)((DataRowView)dataGridView1.SelectedItem).Row.ItemArray[1];
+                comm.ShowDialog();
+            }
+            if (tabControl1.SelectedTab == tabPage2)
+            {
+                Modificar_Operador_ Comm = new Modificar_Operador_();
+                Comm.ID = (int)((DataRowView)dataGridView2.SelectedItem).Row.ItemArray[1];
+                Comm.ShowDialog();
+            }
+            updatepage();
+        }
+
+        private void btnRemover_Click(object sender, EventArgs e)
+        {
+            var selectedItem = dataGridView1.CurrentItem as DataRowView; 
+            if (tabControl1.SelectedTab == tabPage1)
+            {
+                 selectedItem = dataGridView1.CurrentItem as DataRowView;
+                 querry = "Delete From turno WHERE ID = " + ((DataRowView)dataGridView1.SelectedItem).Row.ItemArray[1].ToString();
+            }
+            else if (tabControl1.SelectedTab == tabPage2)
+            {
+                selectedItem = dataGridView2.CurrentItem as DataRowView;
+                querry = "Delete From operador WHERE ID = " + ((DataRowView)dataGridView2.SelectedItem).Row.ItemArray[1].ToString();
+            }
+
+
+
+
+                
+            if (selectedItem != null)
+            {
+                var dataRow = (selectedItem as DataRowView).Row;
+                if (MessageBox.Show("Tem a certeza que deseja remover esta ocorrência?", "Remover Ocorrência", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    
+                    
+                    SqlConnection cnn = new SqlConnection(connectionString);
+                    try
+                    {
+                        cnn.Open(); // Abre a base de dados
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Can not open connection: ! " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    // Insere os dados dentro do Sql
+                    SqlCommand CmdCab = new SqlCommand(querry, cnn);
+
+                    try
+                    {
+                        CmdCab.ExecuteNonQuery(); // Executando o comando
+                    }
+
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Inserir DocCab: " + ex.ToString());
+                        return; // Retorna o valor
+                    }
+                    cnn.Close(); // Fecha a conexão com a base de dados
+                    MessageBox.Show("Ocorrência removida com sucesso!", "Ocorrência", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    updatepage();
+                }
+            }
         }
     }
 }

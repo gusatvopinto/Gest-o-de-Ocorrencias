@@ -14,7 +14,6 @@ namespace Gestão_de_Ocorrencias
         {
             InitializeComponent();
         }
-
         adcModificar mod = new adcModificar();
         public Int32 codigoreg;
         public DateTime Data { get; set; }
@@ -225,7 +224,7 @@ namespace Gestão_de_Ocorrencias
 
         private void sfButton2_Click(object sender, EventArgs e)
         {
-            frmTabelasAdicionais frm = new frmTabelasAdicionais();
+            TabelasAdicionais frm = new TabelasAdicionais();
             frm.ShowDialog();
             update();
             Refresh();

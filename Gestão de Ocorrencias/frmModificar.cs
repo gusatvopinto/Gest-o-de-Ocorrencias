@@ -34,28 +34,21 @@ namespace Gestão_de_Ocorrencias
             SqlConnection connection = new SqlConnection();
             SqlCommand command = new SqlCommand();
 
-            List<int> Scores = new List<int>() { 97, 92, 81, 60 };
-
-            // Create the query.
-            IEnumerable<int> queryHighScores =
-                from score in Scores
-                where score > 80
-                select score;
-
-            // Execute the query.
-            foreach (int i in queryHighScores)
-            {
-                Console.Write(i + " ");
-            }
-
-           
-            idnow = ID.ToString();
+            // Adiciona a USStates a uma nova lista 
+            List<string> USStates = new List<string>();
+            USStates.Add("Alta");
+            USStates.Add("Média");
+            USStates.Add("Baixa");
 
             // Adiciona um novo operador a lista
             List<string> Operadores = new List<string>();
             Operadores.Add("Elisio Pereira");
 
+            cboGravidade.DataSource = USStates;
+            cboOperador.DataSource = Operadores;
             dtmData.Culture = CultureInfo.CurrentCulture;
+
+            idnow = ID.ToString();
 
             hHora.Text = Hora.ToString();
             dtmData.Text = Data.ToString();

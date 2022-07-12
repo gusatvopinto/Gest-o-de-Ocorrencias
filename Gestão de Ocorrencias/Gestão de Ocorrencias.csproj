@@ -121,6 +121,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Adicionar%28Gravidade%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adicionar%28Gravidade%29.Designer.cs">
+      <DependentUpon>Adicionar%28Gravidade%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adicionar%28Operador%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adicionar%28Operador%29.Designer.cs">
+      <DependentUpon>Adicionar%28Operador%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Adicionar%28Turno%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Adicionar%28Turno%29.Designer.cs">
+      <DependentUpon>Adicionar%28Turno%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.cs">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
@@ -153,6 +171,18 @@
     <Compile Include="frmTabelasAdicionais.Designer.cs">
       <DependentUpon>frmTabelasAdicionais.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modificar%28Operador%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar%28Operador%29.Designer.cs">
+      <DependentUpon>Modificar%28Operador%29.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificar%28Turno%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar%28Turno%29.Designer.cs">
+      <DependentUpon>Modificar%28Turno%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="testesDataSet.Designer.cs">
@@ -160,6 +190,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>testesDataSet.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Adicionar%28Gravidade%29.resx">
+      <DependentUpon>Adicionar%28Gravidade%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adicionar%28Operador%29.resx">
+      <DependentUpon>Adicionar%28Operador%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Adicionar%28Turno%29.resx">
+      <DependentUpon>Adicionar%28Turno%29.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -174,6 +213,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTabelasAdicionais.resx">
       <DependentUpon>frmTabelasAdicionais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar%28Operador%29.resx">
+      <DependentUpon>Modificar%28Operador%29.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar%28Turno%29.resx">
+      <DependentUpon>Modificar%28Turno%29.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
