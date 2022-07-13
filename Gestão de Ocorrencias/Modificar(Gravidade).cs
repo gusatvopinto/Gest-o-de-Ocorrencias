@@ -11,9 +11,9 @@ using System.Data.SqlClient;
 
 namespace Gestão_de_Ocorrencias
 {
-    public partial class Modificar_Operador_ : Form
+    public partial class Modificar_Gravidade_ : Form
     {
-        public Modificar_Operador_()
+        public Modificar_Gravidade_()
         {
             InitializeComponent();
         }
@@ -23,7 +23,7 @@ namespace Gestão_de_Ocorrencias
         SqlConnection connection = new SqlConnection(connectionString);
         string idnow;
 
-        private void Modificar_Operador__Load(object sender, EventArgs e)
+        private void Modificar_Gravidade__Load(object sender, EventArgs e)
         {
             connection.Open();
             idnow = ID.ToString();
@@ -31,9 +31,9 @@ namespace Gestão_de_Ocorrencias
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string querry = "UPDATE operador SET Operador = @cboOperador WHERE ID = " + idnow;
+            string querry = "UPDATE gravidade SET Gravidade = @cboGravidade WHERE ID = " + idnow;
             SqlCommand a = new SqlCommand(querry, connection);
-            a.Parameters.AddWithValue("@cboOperador", SqlDbType.Text).Value = textBox1.Text;
+            a.Parameters.AddWithValue("@cboGravidade", SqlDbType.Text).Value = textBox1.Text;
             try
             {
                 a.ExecuteNonQuery();

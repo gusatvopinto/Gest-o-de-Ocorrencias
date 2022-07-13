@@ -20,6 +20,7 @@ namespace Gestão_de_Ocorrencias
         Adicionar_Gravidade_ Md = new Adicionar_Gravidade_();
         Modificar_Turno_ md = new Modificar_Turno_();
         Modificar_Operador_ modd = new Modificar_Operador_();
+        Modificar_Gravidade_ mD = new Modificar_Gravidade_();
 
         public string ConnetionString { get; set; }
         static string connectionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
@@ -110,6 +111,12 @@ namespace Gestão_de_Ocorrencias
                 Comm.ID = (int)((DataRowView)dataGridView2.SelectedItem).Row.ItemArray[1];
                 Comm.ShowDialog();
             }
+            if (tabControl1.SelectedTab == tabPage3)
+            {
+                Modificar_Gravidade_ modOp = new Modificar_Gravidade_();
+                modOp.ID = (int)((DataRowView)dataGridView3.SelectedItem).Row.ItemArray[1];
+                modOp.ShowDialog();
+            }
             updatepage();
         }
 
@@ -126,10 +133,11 @@ namespace Gestão_de_Ocorrencias
                 selectedItem = dataGridView2.CurrentItem as DataRowView;
                 querry = "Delete From operador WHERE ID = " + ((DataRowView)dataGridView2.SelectedItem).Row.ItemArray[1].ToString();
             }
-
-
-
-
+            else if (tabControl1.SelectedTab == tabPage3)
+            {
+                selectedItem = dataGridView3.CurrentItem as DataRowView;
+                querry = "Delete From gravidade Where ID = " + ((DataRowView)dataGridView3.SelectedItem).Row.ItemArray[1].ToString();
+            }
                 
             if (selectedItem != null)
             {

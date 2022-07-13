@@ -171,6 +171,12 @@
     <Compile Include="frmTabelasAdicionais.Designer.cs">
       <DependentUpon>frmTabelasAdicionais.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modificar%28Gravidade%29.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificar%28Gravidade%29.Designer.cs">
+      <DependentUpon>Modificar%28Gravidade%29.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modificar%28Operador%29.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -213,6 +219,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTabelasAdicionais.resx">
       <DependentUpon>frmTabelasAdicionais.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificar%28Gravidade%29.resx">
+      <DependentUpon>Modificar%28Gravidade%29.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modificar%28Operador%29.resx">
       <DependentUpon>Modificar%28Operador%29.cs</DependentUpon>

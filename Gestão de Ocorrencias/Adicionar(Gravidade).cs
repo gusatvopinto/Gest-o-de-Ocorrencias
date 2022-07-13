@@ -33,7 +33,7 @@ namespace Gestão_de_Ocorrencias
             currentid = maxid + 1;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click_1(object sender, EventArgs e)
         {
             string querry = @"INSERT INTO gravidade (Gravidade, ID) Values (@cboGravidade, @ID)";
             SqlCommand a = new SqlCommand(querry, connection);
