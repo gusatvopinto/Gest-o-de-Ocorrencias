@@ -72,7 +72,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Adicionar_Operador_";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Adicionar_Operador_";
+            this.Text = "Adicionar Operador";
             this.Load += new System.EventHandler(this.Adicionar_Operador__Load);
             this.ResumeLayout(false);
             this.PerformLayout();
