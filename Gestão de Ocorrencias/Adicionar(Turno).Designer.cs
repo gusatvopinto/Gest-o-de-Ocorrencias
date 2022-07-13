@@ -70,7 +70,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox0);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Adicionar_Turno_";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar_Turno_";
             this.Load += new System.EventHandler(this.Adicionar_Turno__Load);
             this.ResumeLayout(false);

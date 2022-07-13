@@ -69,8 +69,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Modificar_Operador_";
-            this.Text = "Modificar_Operador_";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modificar Operador";
             this.Load += new System.EventHandler(this.Modificar_Operador__Load);
             this.ResumeLayout(false);
             this.PerformLayout();

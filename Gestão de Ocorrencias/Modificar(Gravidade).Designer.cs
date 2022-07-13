@@ -69,8 +69,10 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Modificar_Gravidade_";
-            this.Text = "Modificar_Gravidade_";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Modificar Gravidade";
             this.Load += new System.EventHandler(this.Modificar_Gravidade__Load);
             this.ResumeLayout(false);
             this.PerformLayout();

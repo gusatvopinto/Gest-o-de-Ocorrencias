@@ -201,8 +201,10 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TabelasAdicionais";
-            this.Text = "TabelasAdicionais";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tabelas Adicionais";
             this.Load += new System.EventHandler(this.frmTabelasAdicionais_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

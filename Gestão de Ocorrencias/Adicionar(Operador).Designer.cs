@@ -69,7 +69,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Adicionar_Operador_";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Adicionar_Operador_";
             this.Load += new System.EventHandler(this.Adicionar_Operador__Load);
             this.ResumeLayout(false);
