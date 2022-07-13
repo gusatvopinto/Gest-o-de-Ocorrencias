@@ -30,6 +30,8 @@ namespace Gestão_de_Ocorrencias
         {
             connection.Open();
             updatepage();
+            btnModificar.Enabled = false;
+            btnRemover.Enabled = false;
         }
 
         string querry = (@"INSERT INTO turno (Turno, ID) Values (@txtTurno, @ID)");
@@ -73,6 +75,8 @@ namespace Gestão_de_Ocorrencias
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             updatepage();
+            btnModificar.Enabled = false;
+            btnRemover.Enabled = false;
         }
 
         private void btnAdicionar_Click_1(object sender, EventArgs e)
@@ -118,6 +122,8 @@ namespace Gestão_de_Ocorrencias
                 modOp.ShowDialog();
             }
             updatepage();
+            btnModificar.Enabled = false;
+            btnRemover.Enabled = false;
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
@@ -173,8 +179,28 @@ namespace Gestão_de_Ocorrencias
                     cnn.Close(); // Fecha a conexão com a base de dados
                     MessageBox.Show("Ocorrência removida com sucesso!", "Ocorrência", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     updatepage();
+                    btnModificar.Enabled = false;
+                    btnRemover.Enabled = false;
                 }
             }
+        }
+
+        private void dataGridView1_SelectionChanged(object sender, Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventArgs e)
+        {
+            btnModificar.Enabled = true;
+            btnRemover.Enabled = true;
+        }
+
+        private void dataGridView2_SelectionChanged(object sender, Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventArgs e)
+        {
+            btnModificar.Enabled = true;
+            btnRemover.Enabled = true;
+        }
+
+        private void dataGridView3_SelectionChanged(object sender, Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventArgs e)
+        {
+            btnModificar.Enabled = true;
+            btnRemover.Enabled = true;
         }
     }
 }

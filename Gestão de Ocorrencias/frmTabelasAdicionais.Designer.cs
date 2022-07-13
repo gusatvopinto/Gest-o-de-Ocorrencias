@@ -31,20 +31,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TabelasAdicionais));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.dataGridView1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridView2 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.dataGridView3 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.btnAdicionar = new Syncfusion.WinForms.Controls.SfButton();
             this.btnModificar = new Syncfusion.WinForms.Controls.SfButton();
             this.btnRemover = new Syncfusion.WinForms.Controls.SfButton();
-            this.dataGridView1 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.dataGridView2 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
-            this.dataGridView3 = new Syncfusion.WinForms.DataGrid.SfDataGrid();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,6 +72,21 @@
             this.tabPage1.Text = "Turno";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AccessibleName = "Table";
+            this.dataGridView1.AllowEditing = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
+            this.dataGridView1.Size = new System.Drawing.Size(564, 363);
+            this.dataGridView1.TabIndex = 7;
+            this.dataGridView1.Text = "sfDataGrid1";
+            this.dataGridView1.SelectionChanged += new Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventHandler(this.dataGridView1_SelectionChanged);
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.dataGridView2);
@@ -83,6 +98,21 @@
             this.tabPage2.Text = "Operador";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AccessibleName = "Table";
+            this.dataGridView2.AllowEditing = false;
+            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
+            this.dataGridView2.Size = new System.Drawing.Size(564, 363);
+            this.dataGridView2.TabIndex = 8;
+            this.dataGridView2.Text = "sfDataGrid1";
+            this.dataGridView2.SelectionChanged += new Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventHandler(this.dataGridView2_SelectionChanged);
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dataGridView3);
@@ -92,6 +122,21 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Gravidade";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AccessibleName = "Table";
+            this.dataGridView3.AllowEditing = false;
+            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView3.Location = new System.Drawing.Point(5, 3);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
+            this.dataGridView3.Size = new System.Drawing.Size(564, 363);
+            this.dataGridView3.TabIndex = 9;
+            this.dataGridView3.Text = "sfDataGrid1";
+            this.dataGridView3.SelectionChanged += new Syncfusion.WinForms.DataGrid.Events.SelectionChangedEventHandler(this.dataGridView3_SelectionChanged);
             // 
             // btnAdicionar
             // 
@@ -147,48 +192,6 @@
             this.btnRemover.TextImageRelation = System.Windows.Forms.TextImageRelation.Overlay;
             this.btnRemover.Click += new System.EventHandler(this.btnRemover_Click);
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AccessibleName = "Table";
-            this.dataGridView1.AllowEditing = false;
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
-            this.dataGridView1.Size = new System.Drawing.Size(564, 363);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.Text = "sfDataGrid1";
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AccessibleName = "Table";
-            this.dataGridView2.AllowEditing = false;
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
-            this.dataGridView2.Size = new System.Drawing.Size(564, 363);
-            this.dataGridView2.TabIndex = 8;
-            this.dataGridView2.Text = "sfDataGrid1";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.AccessibleName = "Table";
-            this.dataGridView3.AllowEditing = false;
-            this.dataGridView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView3.Location = new System.Drawing.Point(5, 3);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.NavigationMode = Syncfusion.WinForms.DataGrid.Enums.NavigationMode.Row;
-            this.dataGridView3.Size = new System.Drawing.Size(564, 363);
-            this.dataGridView3.TabIndex = 9;
-            this.dataGridView3.Text = "sfDataGrid1";
-            // 
             // TabelasAdicionais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,14 +202,14 @@
             this.Controls.Add(this.btnAdicionar);
             this.Controls.Add(this.tabControl1);
             this.Name = "TabelasAdicionais";
-            this.Text = "frmTabelasAdicionais";
+            this.Text = "TabelasAdicionais";
             this.Load += new System.EventHandler(this.frmTabelasAdicionais_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.ResumeLayout(false);
 
