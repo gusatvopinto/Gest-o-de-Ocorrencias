@@ -28,7 +28,7 @@ namespace Gestão_de_Ocorrencias
         SqlConnection cmd = new SqlConnection();
         static string connectionString = @"Data Source=ASUS-PORTATIL\SQLEXPRESS;Initial Catalog=testes;User ID=testes;Password=ogednom";
         SqlConnection sqlConnection = new SqlConnection(connectionString);
-       
+
         private void Form1_Load(object sender, EventArgs e)
         {
             btnModificar.Enabled = false;
