@@ -37,15 +37,15 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(31, 42);
+            this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 21);
+            this.label1.Size = new System.Drawing.Size(88, 21);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Gravidade";
+            this.label1.Text = "Gravidade :";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(118, 42);
+            this.textBox1.Location = new System.Drawing.Point(106, 18);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(157, 27);
@@ -53,7 +53,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(190, 125);
+            this.button1.Location = new System.Drawing.Point(63, 60);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(152, 56);
             this.button1.TabIndex = 2;
@@ -65,7 +65,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 253);
+            this.ClientSize = new System.Drawing.Size(284, 146);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
